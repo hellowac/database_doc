@@ -1,0 +1,16 @@
+[book]
+authors = ["wangchao"]
+language = "en"
+multilingual = false
+src = "src"
+title = "数据库相关的记录文档"
+
+[build]
+build-dir = "docs"
+
+[output.html]
+no-section-label = true
+
+[output.html.fold]
+enable = true
+level = 1
