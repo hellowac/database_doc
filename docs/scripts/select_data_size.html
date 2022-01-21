@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>简介 - 数据库相关的记录文档</title>
+        <title>查询数据大小 - 数据库相关的记录文档</title>
                 
 
         <!-- Custom HTML head -->
@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../introduction.html">简介</a></li><li class="spacer"></li><li class="chapter-item expanded "><div>SQL</div></li><li class="chapter-item expanded "><a href="../mysql/index.html">MySQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mysql/introduction.html" class="active">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../postgre/index.html">PostgreSQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../postgre/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../clickhouse/index.html">ClickHouse</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../scripts/script_select_size.html">常用语句</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../scripts/select_data_size.html">查询数据大小</a></li></ol></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../introduction.html">简介</a></li><li class="spacer"></li><li class="chapter-item expanded "><div>SQL</div></li><li class="chapter-item expanded "><a href="../mysql/index.html">MySQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../mysql/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../postgre/index.html">PostgreSQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../postgre/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../clickhouse/index.html">ClickHouse</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../scripts/script_select_size.html">常用语句</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../scripts/select_data_size.html" class="active">查询数据大小</a></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -143,19 +143,38 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="简介"><a class="header" href="#简介">简介</a></h1>
+                        <h1 id="查询数据大小"><a class="header" href="#查询数据大小">查询数据大小</a></h1>
+<h2 id="mysql"><a class="header" href="#mysql">MYSQL</a></h2>
+<pre><code class="language-sql">select
+ table_schema as '数据库',
+ table_name as '表名',
+ table_rows as '记录数',
+ truncate(data_length / 1024 / 1024, 2) as '数据容量(MB)',
+ truncate(index_length / 1024 / 1024, 2) as '索引容量(MB)'
+from
+ information_schema.tables
+order by
+ data_length desc,
+ index_length desc;
+</code></pre>
+<h2 id="clickhouse"><a class="header" href="#clickhouse">ClickHouse</a></h2>
+<h3 id="数据库总大小"><a class="header" href="#数据库总大小">数据库总大小</a></h3>
+<pre><code class="language-sql">SELECT 
+    sum(rows) AS `总行数`,
+    formatReadableSize(sum(data_uncompressed_bytes)) AS `原始大小`,
+    formatReadableSize(sum(data_compressed_bytes)) AS `压缩大小`,
+    round((sum(data_compressed_bytes) / sum(data_uncompressed_bytes)) * 100, 0) AS `压缩率`
+FROM system.parts
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                                                    <a rel="prev" href="../mysql/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                                    <a rel="prev" href="../scripts/script_select_size.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
-                                                    <a rel="next" href="../postgre/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
                         <div style="clear: both"></div>
                     </nav>
@@ -163,13 +182,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                                    <a rel="prev" href="../mysql/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                    <a rel="prev" href="../scripts/script_select_size.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
-                                    <a rel="next" href="../postgre/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                             </nav>
 
         </div>
