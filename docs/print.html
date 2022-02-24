@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">简介</a></li><li class="spacer"></li><li class="chapter-item expanded "><div>SQL</div></li><li class="chapter-item expanded "><a href="mysql/index.html">MySQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="mysql/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="postgre/index.html">PostgreSQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="postgre/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="clickhouse/index.html">ClickHouse</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="scripts/script_select_size.html">常用语句</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="scripts/select_data_size.html">查询数据大小</a></li></ol></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item affix "><a href="introduction.html">简介</a></li><li class="spacer"></li><li class="chapter-item "><div>SQL</div></li><li class="chapter-item "><a href="mysql/index.html">MySQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="mysql/introduction.html">简介</a></li></ol></li><li class="chapter-item "><a href="postgre/index.html">PostgreSQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="postgre/introduction.html">简介</a></li></ol></li><li class="chapter-item "><a href="clickhouse/index.html">ClickHouse</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/connecti.html">连接数据库</a></li><li class="chapter-item "><a href="clickhouse/inner_tools.html">内置工具</a></li><li class="chapter-item "><a href="clickhouse/define_data.html">数据定义</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/define_data_base_type.html">基础数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/base_type_int.html">数值类型</a></li><li class="chapter-item "><a href="clickhouse/base_type_string.html">字符串类型</a></li><li class="chapter-item "><a href="clickhouse/base_type_datetime.html">时间类型</a></li></ol></li><li class="chapter-item "><a href="clickhouse/define_data_complex_type.html">复合数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/complex_type_array.html">数组</a></li><li class="chapter-item "><a href="clickhouse/complex_type_tuple.html">元组</a></li><li class="chapter-item "><a href="clickhouse/complex_type_enum.html">枚举</a></li><li class="chapter-item "><a href="clickhouse/complex_type_nested.html">嵌套</a></li><li class="chapter-item "><a href="clickhouse/complex_type_array.html">数组</a></li></ol></li><li class="chapter-item "><a href="clickhouse/special_type.html">特殊类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/special_type_nullable.html">Nullable</a></li><li class="chapter-item "><a href="clickhouse/special_type_ip.html">IP</a></li></ol></li></ol></li></ol></li><li class="chapter-item "><a href="scripts/script_select_size.html">常用语句</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="scripts/select_data_size.html">查询数据大小</a></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -151,7 +151,455 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postgresql"><a class="header" href="#postgresql">PostgreSQL</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="简介-2"><a class="header" href="#简介-2">简介</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="clickhouse"><a class="header" href="#clickhouse">ClickHouse</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="简介-3"><a class="header" href="#简介-3">简介</a></h1>
+<p>官网：<a href="https://clickhouse.com/docs/en/">https://clickhouse.com/docs/en/</a></p>
+<p>ClickHouse拥有完备的管理功能，所以它称得上是一个DBMS（Database Management System，数据库管理系统），而不仅是一个数据库。一些基本功能，如下所示：</p>
+<ul>
+<li><strong>DDL</strong>（数据定义语言）：可以动态地创建、修改或删除数据库、表和视图，而无须重启服务。</li>
+<li><strong>DML</strong>（数据操作语言）：可以动态查询、插入、修改或删除数据。</li>
+<li><strong>权限控制</strong>：可以按照用户粒度设置数据库或者表的操作权限，保障数据的安全性。</li>
+<li><strong>数据备份与恢复</strong>：提供了数据备份导出与导入恢复机制，满足生产环境的要求。</li>
+<li><strong>分布式管理</strong>：提供集群模式，能够自动管理多个数据库节点。</li>
+</ul>
+<p>ClickHouse就是一款使用<code>列式存储</code>的数据库，数据按列进行组织，属于同一列的数据会被保存在一起，列与列之间也会由不同的文件分别保存. 【主要针对<a href="https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/">MergeTree</a>引擎】</p>
+<p>ClickHouse目前利用<code>SSE4.2指令集</code>实现向量化执行。</p>
+<p>ClickHouse是大小写敏感的，这意味着<code>SELECT a</code>和<code>SELECT A</code>所代表的语义是不同的。</p>
+<p>ClickHouse在数据存取方面，既支持分区（纵向扩展，利用多线程原理），也支持分片（横向扩展，利用分布式原理），ClickHouse将多线程和分布式的技术应用到了极致。</p>
+<p>ClickHouse则采用<code>Multi-Master多主架构</code>，集群中的每个节点角色对等，客户端访问任意一个节点都能得到相同的效果。</p>
+<p>ClickHouse支持分片，而分片则依赖集群。每个集群由1到多个分片组成，而每个分片则对应了ClickHouse的1个服务节点。分片的数量上限取决于节点数量（1个分片只能对应1个服务节点）。【数据分片是将数据进行横向切分，这是一种在面对海量数据的场景下，解决存储和查询瓶颈的有效手段，是一种分治思想的体现。】</p>
+<p>ClickHouse提供了本地表（Local Table）与分布式表（Distributed Table）的概念。一张本地表等同于一份数据的分片。而分布式表本身不存储任何数据，它是本地表的访问代理，其作用类似分库中间件。借助分布式表，能够代理访问多个数据分片，从而实现分布式查询。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="连接数据库"><a class="header" href="#连接数据库">连接数据库</a></h1>
+<pre><code class="language-shell">&gt; clickhouse-client -h host -p port
+</code></pre>
+<ul>
+<li>
+<p><strong>常见参数:</strong></p>
+<ul>
+<li>
+<p>--host/-h：服务端的地址，默认值为localhost。</p>
+<pre><code class="language-shell">&gt; clickhouse-client -h 10.37.129.10
+</code></pre>
+</li>
+<li>
+<p>--port：服务端的TCP端口，默认值为9000。</p>
+</li>
+<li>
+<p>--user/-u：登录的用户名，默认值为default。</p>
+</li>
+<li>
+<p>--password：登录的密码，默认值为空。</p>
+</li>
+<li>
+<p>--database/-d：登录的数据库，默认值为default。</p>
+</li>
+<li>
+<p>--query/-q：只能在非交互式查询时使用，用于指定SQL语句。</p>
+</li>
+<li>
+<p>--multiquery/-n：在非交互式执行时，允许一次运行多条SQL语句，多条语句之间以分号间隔。</p>
+</li>
+<li>
+<p>--time/-t：在非交互式执行时，会打印每条SQL的执行时间，例如</p>
+<pre><code class="language-shell">&gt; clickhouse-client -h 10.37.129.10 -n -t --query=&quot;SELECT 1;SELECT 2;&quot;
+1
+0.002
+2
+0.001
+</code></pre>
+</li>
+<li>
+<p>完整的参数列表，可以通过--help查阅。</p>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="内置工具"><a class="header" href="#内置工具">内置工具</a></h1>
+<h2 id="clickhouse-local"><a class="header" href="#clickhouse-local">clickhouse-local</a></h2>
+<p>clickhouse-local可以独立运行大部分SQL查询，不需要依赖任何ClickHouse的服务端程序，它可以理解成是ClickHouse服务的单机版微内核，是一个轻量级的应用程序。</p>
+<p>clickhouse-local只能够使用File表引擎（关于表引擎的更多介绍在后续章节展开），它的数据与同机运行的ClickHouse服务也是完全隔离的，相互之间并不能访问。</p>
+<p>clickhouse-local是非交互式运行的，每次执行都需要指定数据来源，例如通过stdin标准输入，以echo打印作为数据来源：</p>
+<pre><code class="language-shell">&gt; echo -e &quot;1\n2\n3&quot; | clickhouse-local -q &quot;CREATE TABLE test_table (id Int64)  ENGINE = File(CSV, stdin); SELECT id FROM test_table;&quot;
+1
+2
+3
+</code></pre>
+<p>也可以借助操作系统的命令，实现对系统用户内存用量的查询：</p>
+<pre><code class="language-shell">&gt; ps aux | tail -n +2 | awk '{ printf(&quot;%s\t%s\n&quot;, $1, $4) }' | clickhouse-local -S &quot;user String, memory Float64&quot; -q &quot;SELECT user, round(sum(memory), 2) as memoryTotal FROM table GROUP BY user ORDER BY memoryTotal DESC FORMAT Pretty&quot;
+┏----------┳-----------------------------┓
+┃ user     ┃        memoryTotal          ┃
+┡----------╇-----------------------------┩
+│ nauu     │        42.7                 │
+├──────────┼──────────----------------───┤
+│ root     │        20.4                 │
+├──────────┼─────────----------------────┤
+│ clickho+ │         1.8                 │
+└──────────┴────────----------------─────┘
+</code></pre>
+<p><strong>核心参数</strong>：</p>
+<ul>
+<li>
+<p>（1）-S/--structure：表结构的简写方式，例如以下两种声明的效果是相同的。</p>
+<pre><code class="language-shell">--使用-S简写
+clickhouse-local -S &quot;id Int64&quot;
+--使用DDL
+clickhouse-local -q &quot;CREATE TABLE test_table (id Int64) ENGINE = File(CSV, stdin)&quot;
+</code></pre>
+</li>
+<li>
+<p>（2）-N/--table：表名称，默认值是table，例如下面的代码。</p>
+<pre><code class="language-shell">clickhouse-local -S &quot;id Int64&quot; -N &quot;test_table&quot; -q &quot;SELECt id FROM test_table&quot;
+</code></pre>
+</li>
+<li>
+<p>（3）-if/--input-format：输入数据的格式，默认值是TSV，例如下面的代码。</p>
+<pre><code class="language-shell">echo -e &quot;1\n2\n3&quot; | clickhouse-local -S &quot;id Int64&quot; -if &quot;CSV&quot; -N &quot;test_table&quot;
+</code></pre>
+</li>
+<li>
+<p>（4）-f/--file：输入数据的地址，默认值是stdin标准输入。</p>
+</li>
+<li>
+<p>（5）-q/--query：待执行的SQL语句，多条语句之间以分号间隔。</p>
+</li>
+</ul>
+<p>完整的参数列表可以通过--help查阅。</p>
+<h2 id="clickhouse-benchmark"><a class="header" href="#clickhouse-benchmark">clickhouse-benchmark</a></h2>
+<p>clickhouse-benchmark是基准测试的小工具，它可以自动运行SQL查询，并生成相应的运行指标报告，例如执行下面的语句启动测试：</p>
+<pre><code class="language-shell">&gt; echo &quot;SELECT * FROM system.numbers LIMIT 100&quot; | clickhouse-benchmark -i 5
+Loaded 1 queries.
+
+# 执行之后，按照指定的参数该查询会执行5次：
+Queries executed: 5.  
+
+# 执行完毕后，会出具包含QPS、RPS等指标信息的报告：
+127.0.0.1:9000, queries 5, QPS: 812.189, RPS: 81218.868, MiB/s: 0.620, result RPS: 81218.868, result MiB/s: 0.620.
+
+# 还会出具各百分位的查询执行时间：
+0.000%          0.001 sec.
+10.000%         0.001 sec.
+20.000%         0.001 sec.
+30.000%         0.001 sec.
+40.000%         0.001 sec.
+50.000%         0.001 sec.
+60.000%         0.001 sec.
+70.000%         0.001 sec.
+80.000%         0.001 sec.
+90.000%         0.002 sec.
+95.000%         0.002 sec.
+99.000%         0.002 sec.
+99.900%         0.002 sec.
+99.990%         0.002 sec.
+
+# 可以指定多条SQL进行测试，此时需要将SQL语句定义在文件中：
+&gt; cat ./multi-sqls 
+SELECT * FROM system.numbers LIMIT 100
+SELECT * FROM system.numbers LIMIT 200
+
+# 在multi-sqls文件内定义了两条SQL，按照定义的顺序它们会依次执行：
+&gt; clickhouse-benchmark -i 5 &lt; ./multi-sqls
+Loaded 2 queries.
+……
+</code></pre>
+<p><strong>核心参数</strong>:</p>
+<ul>
+<li>
+<p>（1）-i/--iterations：SQL查询执行的次数，默认值是0。</p>
+</li>
+<li>
+<p>（2）-c/--concurrency：同时执行查询的并发数，默认值是1。</p>
+</li>
+<li>
+<p>（3）-r/--randomize：在执行多条SQL语句的时候，按照随机顺序执行，例如:</p>
+<pre><code class="language-shell">&gt; clickhouse-benchmark -r 1 -i 5  &lt; ./multi-sqls
+</code></pre>
+</li>
+<li>
+<p>（4）-h/--host：服务端地址，默认值是localhost。clickhouse-benchmark支持对比测试，此时需要通过此参数声明两个服务端的地址，例如:</p>
+<pre><code class="language-shell">&gt; echo &quot;SELECT * FROM system.numbers LIMIT 100&quot; | clickhouse-benchmark -i 5 -h localhost -h localhost
+Loaded 1 queries.
+
+Queries executed: 5.
+
+# 第一个服务
+127.0.0.1:9000, queries 2, QPS: 878.703, RPS: 87870.258, MiB/s: 0.670, result RPS: 87870.258, result MiB/s: 0.670.
+# 第二个服务
+127.0.0.1:9000, queries 3, QPS: 748.210, RPS: 74820.972, MiB/s: 0.571, result RPS: 74820.972, result MiB/s: 0.571.
+
+# 在对比测试中，clickhouse-benchmark会通过抽样的方式比较两组查询指标的差距，在默认的情况下，置信区间为99.5%：
+0.000%          0.001 sec.      0.001 sec.
+10.000%         0.001 sec.      0.001 sec.
+20.000%         0.001 sec.      0.001 sec.
+30.000%         0.001 sec.      0.001 sec.
+40.000%         0.001 sec.      0.001 sec.
+50.000%         0.001 sec.      0.001 sec.
+60.000%         0.001 sec.      0.001 sec.
+70.000%         0.001 sec.      0.001 sec.
+80.000%         0.001 sec.      0.002 sec.
+90.000%         0.001 sec.      0.002 sec.
+95.000%         0.001 sec.      0.002 sec.
+99.000%         0.001 sec.      0.002 sec.
+99.900%         0.001 sec.      0.002 sec.
+99.990%         0.001 sec.      0.002 sec.
+
+No difference proven at 99.5% confidence
+</code></pre>
+</li>
+<li>
+<p>（5）--confidence：设置对比测试中置信区间的范围，默认值是5(99.5%)，它的取值范围有0(80%)、1(90%)、2(95%)、3(98%)、4(99%)和5(99.5%)。</p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="数据定义"><a class="header" href="#数据定义">数据定义</a></h1>
+<p>ClickHouse提供了许多数据类型，它们可以划分为基础类型、复合类型和特殊类型。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="基础数据类型"><a class="header" href="#基础数据类型">基础数据类型</a></h1>
+<p>基础类型只有<code>数值</code>、<code>字符串</code>和<code>时间</code>三种类型，没有<code>Boolean</code>类型，但可以使用整型的<code>0</code>或<code>1</code>替代。</p>
+<div style="break-before: page; page-break-before: always;"></div><ul>
+<li><a href="clickhouse/base_type_int.html#%E6%95%B0%E5%80%BC%E7%B1%BB%E5%9E%8B">数值类型</a>
+<ul>
+<li><a href="clickhouse/base_type_int.html#int">Int</a></li>
+<li><a href="clickhouse/base_type_int.html#float">Float</a></li>
+<li><a href="clickhouse/base_type_int.html#decimal">Decimal</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="数值类型"><a class="header" href="#数值类型">数值类型</a></h1>
+<p>数值类型分为<code>整数</code>、<code>浮点数</code>和<code>定点数</code>三类.</p>
+<h2 id="int"><a class="header" href="#int">Int</a></h2>
+<p>参考官网: <a href="https://clickhouse.com/docs/zh/sql-reference/data-types/int-uint/">https://clickhouse.com/docs/zh/sql-reference/data-types/int-uint/</a></p>
+<p>创建表时，可以为整数设置类型参数 (例如. TINYINT(8), SMALLINT(16), INT(32), BIGINT(64)), 但 ClickHouse 会忽略它们.</p>
+<p>有符号</p>
+<table><thead><tr><th>名称</th><th>大小(字节)</th><th>范围</th><th>常用</th></tr></thead><tbody>
+<tr><td>Int8</td><td>1</td><td>-128 - 127</td><td>Tinyint</td></tr>
+<tr><td>Int16</td><td>2</td><td>-32768 - 32767</td><td>Smallint</td></tr>
+<tr><td>Int32</td><td>4</td><td>-2147483648 - 2147483647</td><td>Int</td></tr>
+<tr><td>Int64</td><td>8</td><td>-9223372036854775808 - 9223372036854775807</td><td>Bigint</td></tr>
+<tr><td>Int128</td><td>16</td><td>-1701411834604692317... - 1701411834604692317...</td><td>-</td></tr>
+<tr><td>Int256</td><td>32</td><td>-5789604461865809771... - 5789604461865809771...</td><td>-</td></tr>
+</tbody></table>
+<p>无符号</p>
+<table><thead><tr><th>名称</th><th>大小(字节)</th><th>范围</th><th>常用</th></tr></thead><tbody>
+<tr><td>UInt8</td><td>1</td><td>0 - 255</td><td>Tinyint Unsigned</td></tr>
+<tr><td>UInt16</td><td>2</td><td>0 - 65535</td><td>Smallint Unsigned</td></tr>
+<tr><td>UInt32</td><td>4</td><td>0 - 4294967295</td><td>Int Unsigned</td></tr>
+<tr><td>UInt64</td><td>8</td><td>0 - 18446744073709551615</td><td>Bigint Unsigned</td></tr>
+<tr><td>UInt128</td><td>16</td><td>0 - 340282366920938463463374607431768211455</td><td>-</td></tr>
+<tr><td>UInt256</td><td>32</td><td>0 - 115792089237316195423570985008687907853...</td><td>-</td></tr>
+</tbody></table>
+<h2 id="float"><a class="header" href="#float">Float</a></h2>
+<p>参考官网: <a href="https://clickhouse.com/docs/zh/sql-reference/data-types/float/">https://clickhouse.com/docs/zh/sql-reference/data-types/float/</a></p>
+<p>与整数类似，ClickHouse直接使用<code>Float32</code>和<code>Float64</code>代表单精度浮点数以及双精度浮点数</p>
+<table><thead><tr><th>名称</th><th>大小(字节)</th><th>有效经度(位数)</th><th>常用</th></tr></thead><tbody>
+<tr><td>Float32</td><td>4</td><td>7</td><td>Float</td></tr>
+<tr><td>Float64</td><td>8</td><td>16</td><td>Double</td></tr>
+</tbody></table>
+<p>ClickHouse的浮点数支持正无穷、负无穷以及非数字的表达方式。</p>
+<ul>
+<li>
+<p>Inf – 正无穷</p>
+<pre><code class="language-sql">&gt;) SELECT 0.5 / 0
+┌─divide(0.5, 0)─┐
+│            inf │
+└────────────────┘
+</code></pre>
+</li>
+<li>
+<p>-Inf – 负无穷</p>
+<pre><code class="language-sql">&gt;) SELECT -0.5 / 0
+┌─divide(-0.5, 0)─┐
+│            -inf │
+└─────────────────┘
+</code></pre>
+</li>
+<li>
+<p>NaN – 非数字</p>
+<pre><code class="language-sql">&gt;) SELECT 0 / 0
+┌─divide(0, 0)──┐
+│            nan│
+└───────────────┘
+</code></pre>
+</li>
+</ul>
+<h2 id="decimal"><a class="header" href="#decimal">Decimal</a></h2>
+<p>参考官网: <a href="https://clickhouse.com/docs/zh/sql-reference/data-types/decimal/">https://clickhouse.com/docs/zh/sql-reference/data-types/decimal/</a></p>
+<p>更高精度的数值运算，则需要使用定点数。ClickHouse提供了Decimal32、Decimal64和Decimal128三种精度的定点数。可以通过两种形式声明定点：简写方式有Decimal32(S)、Decimal64(S)、Decimal128(S)三种，原生方式为Decimal(P,S)，其中：</p>
+<ul>
+<li>P代表精度，决定总位数（整数部分+小数部分），取值范围是1～38；</li>
+<li>S代表规模，决定小数位数，取值范围是0～P。</li>
+</ul>
+<p>对应关系：</p>
+<table><thead><tr><th>名称</th><th>有效声明</th><th>范围</th></tr></thead><tbody>
+<tr><td>Decimal32(S)</td><td>Decimal(1 ~ 9 , S)</td><td>-1 * 10<sup>^</sup>(9-S) 至  10<sup>^</sup>(9-S)</td></tr>
+<tr><td>Decimal64(S)</td><td>Decimal(10 ~ 18 , S)</td><td>-1 * 10<sup>^</sup>(18-S) 至  10<sup>^</sup>(18-S)</td></tr>
+<tr><td>Decimal128(S)</td><td>Decimal(19 ~ 38 , S)</td><td>-1 * 10<sup>^</sup>(38-S) 至  10<sup>^</sup>(38-S)</td></tr>
+</tbody></table>
+<p>由于现代CPU不支持128位数字，因此 <code>Decimal128</code> 上的操作由软件模拟。所以 <code>Decimal128</code> 的运算速度明显慢于 <code>Decimal32</code>/<code>Decimal64</code>。</p>
+<p><strong>对Decimal的二进制运算导致更宽的结果类型（无论参数的顺序如何）。</strong></p>
+<ul>
+<li>Decimal64(S1) &lt;op&gt; Decimal32(S2) -&gt; Decimal64(S)</li>
+<li>Decimal128(S1) &lt;op&gt; Decimal32(S2) -&gt; Decimal128(S)</li>
+<li>Decimal128(S1) &lt;op&gt; Decimal64(S2) -&gt; Decimal128(S)</li>
+</ul>
+<p><strong>精度变化的规则：</strong></p>
+<ul>
+<li>加法，减法：S = max(S1, S2)。</li>
+<li>乘法：S = S1 + S2。</li>
+<li>除法：S = S1。</li>
+</ul>
+<p>例如<code>toDecimal64(2,4)</code>与<code>toDecimal32(2,2)</code>相加或相减后<code>S=4</code>：</p>
+<pre><code class="language-shell"># 相加
+:) SELECT toDecimal64(2,4) + toDecimal32(2,2)
+ 
+┌─plus(toDecimal64(2, 4), toDecimal32(2, 2))─┐
+│ 4.0000                                     │ # 保留四位
+└────────────────────────────────────────────┘
+
+# 相减
+:) SELECT toDecimal32(4,4) - toDecimal64(2,2)
+
+┌─minus(toDecimal32(4, 4), toDecimal64(2, 2))┐
+│ 2.0000                                     │ # 保留四位
+└────────────────────────────────────────────┘
+
+# toDecimal64(2,4)与toDecimal32(2,2)相乘后S=4+2=6
+:) SELECT toDecimal64(2,4) * toDecimal32(2,2)
+
+┌─multiply(toDecimal64(2, 4), toDecimal32(2, 2))┐
+│ 4.000000                                      │
+└───────────────────────────────────────────────┘
+
+# toDecimal64(2,4)与toDecimal32(2,2)相除后S=4
+:) SELECT toDecimal64(2,4) / toDecimal32(2,2)
+
+┌─divide(toDecimal64(2, 4), toDecimal32(2, 2))─┐
+│  1.0000                                      │
+└──────────────────────────────────────────────┘
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><ul>
+<li><a href="clickhouse/base_type_string.html#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B">字符串类型</a>
+<ul>
+<li><a href="clickhouse/base_type_string.html#string">String</a></li>
+<li><a href="clickhouse/base_type_string.html#fixedstring">FixedString</a></li>
+<li><a href="clickhouse/base_type_string.html#uuid">UUID</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="字符串类型"><a class="header" href="#字符串类型">字符串类型</a></h1>
+<p>字符串类型可以细分为<code>String</code>、<code>FixedString</code>和<code>UUID</code>三类</p>
+<h2 id="string"><a class="header" href="#string">String</a></h2>
+<p>字符串由String定义，长度不限。因此在使用String的时候无须声明大小。它完全代替了传统意义上数据库的Varchar、Text、Clob和Blob等字符类型。String类型不限定字符集，因为它根本就没有这个概念，所以可以将任意编码的字符串存入其中。但是为了程序的规范性和可维护性，在同一套程序中应该遵循使用统一的编码，例如“统一保持UTF-8编码”就是一种很好的约定。</p>
+<h2 id="fixedstring"><a class="header" href="#fixedstring">FixedString</a></h2>
+<p>FixedString类型和传统意义上的Char类型有些类似，对于一些字符有明确长度的场合，可以使用固定长度的字符串。定长字符串通过FixedString(N)声明，其中N表示字符串长度。但与Char不同的是，FixedString使用null字节填充末尾字符，而Char通常使用空格填充。比如在下面的例子中，字符串‘abc’虽然只有3位，但长度却是5，因为末尾有2位空字符填充：</p>
+<pre><code class="language-sql">:) SELECT toFixedString('abc',5) , LENGTH(toFixedString('abc',5)) AS LENGTH
+
+┌─toFixedString('abc', 5)─┬─LENGTH──────┐
+│ abc                     │ 5           │
+└─────────────────────────┴─────────────┘
+</code></pre>
+<h2 id="uuid"><a class="header" href="#uuid">UUID</a></h2>
+<p>UUID是一种数据库常见的主键类型，在ClickHouse中直接把它作为一种数据类型。UUID共有32位，它的格式为8-4-4-4-12。如果一个UUID类型的字段在写入数据时没有被赋值，则会依照格式使用0填充，例如：</p>
+<pre><code class="language-sql">
+CREATE TABLE UUID_TEST (
+  c1 UUID,
+  c2 String
+) ENGINE = Memory;
+
+--第一行UUID有值
+INSERT INTO UUID_TEST SELECT generateUUIDv4(),'t1'
+--第二行UUID没有值
+INSERT INTO UUID_TEST(c2) VALUES ('t2')
+
+:) SELECT * FROM UUID_TEST
+┌─────────────────────c1─┬─c2─┐
+│ f36c709e-1b73-4370-a703-f486bdd22749 │ t1 │
+└───────────────────────┴────┘
+┌─────────────────────c1─┬─c2─┐
+│ 00000000-0000-0000-0000-000000000000 │ t2 │
+└───────────────────────┴────┘
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><ul>
+<li><a href="clickhouse/base_type_datetime.html#%E6%97%B6%E9%97%B4%E7%B1%BB%E5%9E%8B">时间类型</a>
+<ul>
+<li><a href="clickhouse/base_type_datetime.html#datetime">DateTime</a></li>
+<li><a href="clickhouse/base_type_datetime.html#datetime64">DateTime64</a></li>
+<li><a href="clickhouse/base_type_datetime.html#date">Date</a></li>
+<li><a href="clickhouse/base_type_datetime.html#date32">Date32</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="时间类型"><a class="header" href="#时间类型">时间类型</a></h1>
+<p>时间类型分为<code>DateTime</code>、<code>DateTime64</code>、<code>Date</code>、<code>Date32</code>四类。ClickHouse目前没有时间戳类型。</p>
+<p>时间类型最高的精度是秒，也就是说，如果需要处理毫秒、微秒等大于秒分辨率的时间，则只能借助<code>UInt</code>类型实现.</p>
+<h2 id="datetime"><a class="header" href="#datetime">DateTime</a></h2>
+<p>DateTime类型包含时、分、秒信息，精确到秒，支持使用字符串形式写入：</p>
+<pre><code class="language-sql">CREATE TABLE Datetime_TEST (
+    c1 Datetime
+) ENGINE = Memory
+
+--以字符串形式写入
+INSERT INTO Datetime_TEST VALUES('2019-06-22 00:00:00')
+ 
+ SELECT c1, toTypeName(c1) FROM Datetime_TEST
+
+┌──────────c1─┬─toTypeName(c1)───────────┐
+│ 2019-06-22 00:00:00 │  DateTime        │
+└─────────────────────┴──────────────────┘
+</code></pre>
+<h2 id="datetime64"><a class="header" href="#datetime64">DateTime64</a></h2>
+<p>DateTime64可以记录亚秒，它在DateTime之上增加了精度的设置，例如：</p>
+<pre><code class="language-sql">CREATE TABLE Datetime64_TEST (
+    c1 Datetime64(2)    
+) ENGINE = Memory
+
+--以字符串形式写入
+INSERT INTO Datetime64_TEST VALUES('2019-06-22 00:00:00')
+ 
+SELECT c1, toTypeName(c1) FROM Datetime64_TEST
+
+┌─────────────c1─┬─toTypeName(c1)─────────┐
+│ 2019-06-22 00:00:00.00 │ DateTime       │
+└────────────────────────┴────────────────┘
+</code></pre>
+<h2 id="date"><a class="header" href="#date">Date</a></h2>
+<p>Date类型不包含具体的时间信息，只精确到天，它同样也支持字符串形式写入：</p>
+<pre><code class="language-sql">CREATE TABLE Date_TEST (
+  c1 Date
+) ENGINE = Memory
+
+--以字符串形式写入
+INSERT INTO Date_TEST VALUES('2019-06-22')
+
+SELECT c1, toTypeName(c1) FROM Date_TEST
+
+┌─────────c1─┬─toTypeName(c1)────────┐
+│ 2019-06-22       │ Date            │
+└──────────────────┴─────────────────┘
+
+</code></pre>
+<h2 id="date32"><a class="header" href="#date32">Date32</a></h2>
+<blockquote>
+<p>注意: <a href="https://clickhouse.com/docs/zh/whats-new/changelog/#clickhouse-release-v22-1-2022-01-18">v22.1</a>版本中新增支持。</p>
+</blockquote>
+<p>一个日期。 支持与 <a href="clickhouse/base_type_datetime.html#datetime64">Datetime64</a> 相同的日期范围。 存储自 <code>1925-01-01</code> 以来的天数，占用4个字节。 允许将日期存储到<code>2283-11-11</code>。</p>
+<pre><code class="language-sql">CREATE TABLE Date32_TEST ( c1 Date32 ) ENGINE = Memory
+
+--以字符串形式写入
+INSERT INTO Date32_TEST VALUES('2282-06-22')
+
+SELECT c1, toTypeName(c1) FROM Date32_TEST
+
+┌─────────c1─┬─toTypeName(c1)────────┐
+│ 2282-06-22       │ Date32          │
+└──────────────────┴─────────────────┘
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="复合数据类型"><a class="header" href="#复合数据类型">复合数据类型</a></h1>
+<p>除了基础数据类型之外，ClickHouse还提供了数组、元组、枚举和嵌套四类复合类型。这些类型通常是其他数据库原生不具备的特性。拥有了复合类型之后，ClickHouse的数据模型表达能力更强了。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="数组"><a class="header" href="#数组">数组</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="元组"><a class="header" href="#元组">元组</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="枚举"><a class="header" href="#枚举">枚举</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="嵌套"><a class="header" href="#嵌套">嵌套</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="数组-1"><a class="header" href="#数组-1">数组</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="特殊类型"><a class="header" href="#特殊类型">特殊类型</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nullable"><a class="header" href="#nullable">Nullable</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ip"><a class="header" href="#ip">IP</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="常用语句"><a class="header" href="#常用语句">常用语句</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="查询数据大小"><a class="header" href="#查询数据大小">查询数据大小</a></h1>
 <h2 id="mysql-1"><a class="header" href="#mysql-1">MYSQL</a></h2>
@@ -268,6 +716,20 @@ ORDER BY column ASC
 
         </div>
 
+                <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3002/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
         
         

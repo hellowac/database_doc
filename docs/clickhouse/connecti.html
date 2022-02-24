@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>简介 - 数据库相关的记录文档</title>
+        <title>连接数据库 - 数据库相关的记录文档</title>
                 
 
         <!-- Custom HTML head -->
@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../introduction.html">简介</a></li><li class="spacer"></li><li class="chapter-item expanded "><div>SQL</div></li><li class="chapter-item expanded "><a href="../mysql/index.html">MySQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../mysql/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../postgre/index.html">PostgreSQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../postgre/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../clickhouse/index.html">ClickHouse</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../clickhouse/introduction.html" class="active">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../scripts/script_select_size.html">常用语句</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../scripts/select_data_size.html">查询数据大小</a></li></ol></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../introduction.html">简介</a></li><li class="spacer"></li><li class="chapter-item "><div>SQL</div></li><li class="chapter-item "><a href="../mysql/index.html">MySQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../mysql/introduction.html">简介</a></li></ol></li><li class="chapter-item "><a href="../postgre/index.html">PostgreSQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../postgre/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../clickhouse/index.html">ClickHouse</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../clickhouse/connecti.html" class="active">连接数据库</a></li><li class="chapter-item "><a href="../clickhouse/inner_tools.html">内置工具</a></li><li class="chapter-item "><a href="../clickhouse/define_data.html">数据定义</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/define_data_base_type.html">基础数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/base_type_int.html">数值类型</a></li><li class="chapter-item "><a href="../clickhouse/base_type_string.html">字符串类型</a></li><li class="chapter-item "><a href="../clickhouse/base_type_datetime.html">时间类型</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/define_data_complex_type.html">复合数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/complex_type_array.html">数组</a></li><li class="chapter-item "><a href="../clickhouse/complex_type_tuple.html">元组</a></li><li class="chapter-item "><a href="../clickhouse/complex_type_enum.html">枚举</a></li><li class="chapter-item "><a href="../clickhouse/complex_type_nested.html">嵌套</a></li><li class="chapter-item "><a href="../clickhouse/complex_type_array.html">数组</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/special_type.html">特殊类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/special_type_nullable.html">Nullable</a></li><li class="chapter-item "><a href="../clickhouse/special_type_ip.html">IP</a></li></ol></li></ol></li></ol></li><li class="chapter-item "><a href="../scripts/script_select_size.html">常用语句</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../scripts/select_data_size.html">查询数据大小</a></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -143,7 +143,51 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="简介"><a class="header" href="#简介">简介</a></h1>
+                        <h1 id="连接数据库"><a class="header" href="#连接数据库">连接数据库</a></h1>
+<pre><code class="language-shell">&gt; clickhouse-client -h host -p port
+</code></pre>
+<ul>
+<li>
+<p><strong>常见参数:</strong></p>
+<ul>
+<li>
+<p>--host/-h：服务端的地址，默认值为localhost。</p>
+<pre><code class="language-shell">&gt; clickhouse-client -h 10.37.129.10
+</code></pre>
+</li>
+<li>
+<p>--port：服务端的TCP端口，默认值为9000。</p>
+</li>
+<li>
+<p>--user/-u：登录的用户名，默认值为default。</p>
+</li>
+<li>
+<p>--password：登录的密码，默认值为空。</p>
+</li>
+<li>
+<p>--database/-d：登录的数据库，默认值为default。</p>
+</li>
+<li>
+<p>--query/-q：只能在非交互式查询时使用，用于指定SQL语句。</p>
+</li>
+<li>
+<p>--multiquery/-n：在非交互式执行时，允许一次运行多条SQL语句，多条语句之间以分号间隔。</p>
+</li>
+<li>
+<p>--time/-t：在非交互式执行时，会打印每条SQL的执行时间，例如</p>
+<pre><code class="language-shell">&gt; clickhouse-client -h 10.37.129.10 -n -t --query=&quot;SELECT 1;SELECT 2;&quot;
+1
+0.002
+2
+0.001
+</code></pre>
+</li>
+<li>
+<p>完整的参数列表，可以通过--help查阅。</p>
+</li>
+</ul>
+</li>
+</ul>
 
                     </main>
 
@@ -153,7 +197,7 @@
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
-                                                    <a rel="next" href="../scripts/script_select_size.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                                    <a rel="next" href="../clickhouse/inner_tools.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -167,13 +211,27 @@
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
-                                    <a rel="next" href="../scripts/script_select_size.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                    <a rel="next" href="../clickhouse/inner_tools.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                             </nav>
 
         </div>
 
+                <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3002/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
         
         

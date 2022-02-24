@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../introduction.html">简介</a></li><li class="spacer"></li><li class="chapter-item expanded "><div>SQL</div></li><li class="chapter-item expanded "><a href="../mysql/index.html">MySQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../mysql/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../postgre/index.html">PostgreSQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../postgre/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../clickhouse/index.html" class="active">ClickHouse</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../scripts/script_select_size.html">常用语句</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../scripts/select_data_size.html">查询数据大小</a></li></ol></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../introduction.html">简介</a></li><li class="spacer"></li><li class="chapter-item "><div>SQL</div></li><li class="chapter-item "><a href="../mysql/index.html">MySQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../mysql/introduction.html">简介</a></li></ol></li><li class="chapter-item "><a href="../postgre/index.html">PostgreSQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../postgre/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../clickhouse/index.html" class="active">ClickHouse</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/connecti.html">连接数据库</a></li><li class="chapter-item "><a href="../clickhouse/inner_tools.html">内置工具</a></li><li class="chapter-item "><a href="../clickhouse/define_data.html">数据定义</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/define_data_base_type.html">基础数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/base_type_int.html">数值类型</a></li><li class="chapter-item "><a href="../clickhouse/base_type_string.html">字符串类型</a></li><li class="chapter-item "><a href="../clickhouse/base_type_datetime.html">时间类型</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/define_data_complex_type.html">复合数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/complex_type_array.html">数组</a></li><li class="chapter-item "><a href="../clickhouse/complex_type_tuple.html">元组</a></li><li class="chapter-item "><a href="../clickhouse/complex_type_enum.html">枚举</a></li><li class="chapter-item "><a href="../clickhouse/complex_type_nested.html">嵌套</a></li><li class="chapter-item "><a href="../clickhouse/complex_type_array.html">数组</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/special_type.html">特殊类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/special_type_nullable.html">Nullable</a></li><li class="chapter-item "><a href="../clickhouse/special_type_ip.html">IP</a></li></ol></li></ol></li></ol></li><li class="chapter-item "><a href="../scripts/script_select_size.html">常用语句</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../scripts/select_data_size.html">查询数据大小</a></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -144,6 +144,22 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="clickhouse"><a class="header" href="#clickhouse">ClickHouse</a></h1>
+<p>官网：<a href="https://clickhouse.com/docs/en/">https://clickhouse.com/docs/en/</a></p>
+<p>ClickHouse拥有完备的管理功能，所以它称得上是一个DBMS（Database Management System，数据库管理系统），而不仅是一个数据库。一些基本功能，如下所示：</p>
+<ul>
+<li><strong>DDL</strong>（数据定义语言）：可以动态地创建、修改或删除数据库、表和视图，而无须重启服务。</li>
+<li><strong>DML</strong>（数据操作语言）：可以动态查询、插入、修改或删除数据。</li>
+<li><strong>权限控制</strong>：可以按照用户粒度设置数据库或者表的操作权限，保障数据的安全性。</li>
+<li><strong>数据备份与恢复</strong>：提供了数据备份导出与导入恢复机制，满足生产环境的要求。</li>
+<li><strong>分布式管理</strong>：提供集群模式，能够自动管理多个数据库节点。</li>
+</ul>
+<p>ClickHouse就是一款使用<code>列式存储</code>的数据库，数据按列进行组织，属于同一列的数据会被保存在一起，列与列之间也会由不同的文件分别保存. 【主要针对<a href="https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/">MergeTree</a>引擎】</p>
+<p>ClickHouse目前利用<code>SSE4.2指令集</code>实现向量化执行。</p>
+<p>ClickHouse是大小写敏感的，这意味着<code>SELECT a</code>和<code>SELECT A</code>所代表的语义是不同的。</p>
+<p>ClickHouse在数据存取方面，既支持分区（纵向扩展，利用多线程原理），也支持分片（横向扩展，利用分布式原理），ClickHouse将多线程和分布式的技术应用到了极致。</p>
+<p>ClickHouse则采用<code>Multi-Master多主架构</code>，集群中的每个节点角色对等，客户端访问任意一个节点都能得到相同的效果。</p>
+<p>ClickHouse支持分片，而分片则依赖集群。每个集群由1到多个分片组成，而每个分片则对应了ClickHouse的1个服务节点。分片的数量上限取决于节点数量（1个分片只能对应1个服务节点）。【数据分片是将数据进行横向切分，这是一种在面对海量数据的场景下，解决存储和查询瓶颈的有效手段，是一种分治思想的体现。】</p>
+<p>ClickHouse提供了本地表（Local Table）与分布式表（Distributed Table）的概念。一张本地表等同于一份数据的分片。而分布式表本身不存储任何数据，它是本地表的访问代理，其作用类似分库中间件。借助分布式表，能够代理访问多个数据分片，从而实现分布式查询。</p>
 
                     </main>
 
@@ -153,7 +169,7 @@
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
-                                                    <a rel="next" href="../clickhouse/introduction.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                                    <a rel="next" href="../clickhouse/connecti.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -167,13 +183,27 @@
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
-                                    <a rel="next" href="../clickhouse/introduction.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                    <a rel="next" href="../clickhouse/connecti.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                             </nav>
 
         </div>
 
+                <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3002/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
         
         
