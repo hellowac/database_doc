@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="introduction.html">简介</a></li><li class="spacer"></li><li class="chapter-item "><div>SQL</div></li><li class="chapter-item "><a href="mysql/index.html">MySQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="mysql/introduction.html">简介</a></li></ol></li><li class="chapter-item "><a href="postgre/index.html">PostgreSQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="postgre/introduction.html">简介</a></li></ol></li><li class="chapter-item "><a href="clickhouse/index.html">ClickHouse</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/connecti.html">连接数据库</a></li><li class="chapter-item "><a href="clickhouse/inner_tools.html">内置工具</a></li><li class="chapter-item "><a href="clickhouse/define_data.html">数据定义</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/define_data_base_type.html">基础数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/base_type_int.html">数值类型</a></li><li class="chapter-item "><a href="clickhouse/base_type_string.html">字符串类型</a></li><li class="chapter-item "><a href="clickhouse/base_type_datetime.html">时间类型</a></li></ol></li><li class="chapter-item "><a href="clickhouse/define_data_complex_type.html">复合数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/complex_type_array.html">数组</a></li><li class="chapter-item "><a href="clickhouse/complex_type_tuple.html">元组</a></li><li class="chapter-item "><a href="clickhouse/complex_type_enum.html">枚举</a></li><li class="chapter-item "><a href="clickhouse/complex_type_nested.html">嵌套</a></li><li class="chapter-item "><a href="clickhouse/complex_type_array.html">数组</a></li></ol></li><li class="chapter-item "><a href="clickhouse/special_type.html">特殊类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/special_type_nullable.html">Nullable</a></li><li class="chapter-item "><a href="clickhouse/special_type_ip.html">IP</a></li></ol></li></ol></li></ol></li><li class="chapter-item "><a href="scripts/script_select_size.html">常用语句</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="scripts/select_data_size.html">查询数据大小</a></li></ol></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item affix "><a href="introduction.html">简介</a></li><li class="spacer"></li><li class="chapter-item "><div>SQL</div></li><li class="chapter-item "><a href="mysql/index.html">MySQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="mysql/introduction.html">简介</a></li></ol></li><li class="chapter-item "><a href="postgre/index.html">PostgreSQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="postgre/introduction.html">简介</a></li></ol></li><li class="chapter-item "><a href="clickhouse/index.html">ClickHouse</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/clickhouse-sqlalchemy.html">Clickhouse-SQLAlchemy</a></li><li class="chapter-item "><a href="clickhouse/clickhouse-driver.html">Clickhouse-driver</a></li><li class="chapter-item "><a href="clickhouse/connecti.html">连接数据库</a></li><li class="chapter-item "><a href="clickhouse/inner_tools.html">内置工具</a></li><li class="chapter-item "><a href="clickhouse/define_data.html">数据定义</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/define_data_base_type.html">基础数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/base_type_int.html">数值类型</a></li><li class="chapter-item "><a href="clickhouse/base_type_string.html">字符串类型</a></li><li class="chapter-item "><a href="clickhouse/base_type_datetime.html">时间类型</a></li></ol></li><li class="chapter-item "><a href="clickhouse/define_data_complex_type.html">复合数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/complex_type_array.html">数组</a></li><li class="chapter-item "><a href="clickhouse/complex_type_tuple.html">元组</a></li><li class="chapter-item "><a href="clickhouse/complex_type_enum.html">枚举</a></li><li class="chapter-item "><a href="clickhouse/complex_type_nested.html">嵌套</a></li><li class="chapter-item "><a href="clickhouse/complex_type_array.html">数组</a></li></ol></li><li class="chapter-item "><a href="clickhouse/special_type.html">特殊类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="clickhouse/special_type_nullable.html">Nullable</a></li><li class="chapter-item "><a href="clickhouse/special_type_ip.html">IP</a></li></ol></li></ol></li></ol></li><li class="chapter-item "><a href="scripts/script_select_size.html">常用语句</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="scripts/select_data_size.html">查询数据大小</a></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -167,11 +167,338 @@
 <p>ClickHouse则采用<code>Multi-Master多主架构</code>，集群中的每个节点角色对等，客户端访问任意一个节点都能得到相同的效果。</p>
 <p>ClickHouse支持分片，而分片则依赖集群。每个集群由1到多个分片组成，而每个分片则对应了ClickHouse的1个服务节点。分片的数量上限取决于节点数量（1个分片只能对应1个服务节点）。【数据分片是将数据进行横向切分，这是一种在面对海量数据的场景下，解决存储和查询瓶颈的有效手段，是一种分治思想的体现。】</p>
 <p>ClickHouse提供了本地表（Local Table）与分布式表（Distributed Table）的概念。一张本地表等同于一份数据的分片。而分布式表本身不存储任何数据，它是本地表的访问代理，其作用类似分库中间件。借助分布式表，能够代理访问多个数据分片，从而实现分布式查询。</p>
+<div style="break-before: page; page-break-before: always;"></div><ul>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#clickhouse-sqlalchemy">Clickhouse-SQLAlchemy</a>
+<ul>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#%E5%AE%89%E8%A3%85">安装</a>
+<ul>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#%E6%8E%A5%E5%8F%A3%E6%94%AF%E6%8C%81">接口支持</a></li>
+</ul>
+</li>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#%E8%BF%9E%E6%8E%A5%E5%8F%82%E6%95%B0">连接参数</a>
+<ul>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#%E9%A9%B1%E5%8A%A8%E9%80%89%E9%A1%B9">驱动选项</a></li>
+</ul>
+</li>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#%E5%8A%9F%E8%83%BD">功能</a>
+<ul>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#sqlalchemy-%E5%A3%B0%E6%98%8E%E5%BC%8F%E6%94%AF%E6%8C%81">SQLAlchemy 声明式支持</a></li>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#%E5%9F%BA%E6%9C%AC%E7%9A%84ddl%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89%E6%94%AF%E6%8C%81">基本的DDL(数据定义)支持</a></li>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#%E5%9F%BA%E6%9C%AC-insert-%E5%AD%90%E5%8F%A5%E6%94%AF%E6%8C%81">基本 INSERT 子句支持</a></li>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#%E5%B8%B8%E8%A7%81%E7%9A%84-sqlalchemy-%E9%93%BE%E5%BC%8F%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%B3%95">常见的 SQLAlchemy 链式查询方法</a></li>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#%E9%AB%98%E7%BA%A7-insert-%E5%AD%90%E5%8F%A5%E6%94%AF%E6%8C%81">高级 INSERT 子句支持</a></li>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#%E7%94%A8%E4%BA%8E%E6%9F%A5%E8%AF%A2%E5%A4%84%E7%90%86%E7%9A%84%E5%A4%96%E9%83%A8%E6%95%B0%E6%8D%AE">用于查询处理的外部数据</a></li>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#%E6%94%AF%E6%8C%81%E7%9A%84-clickhouse-%E7%89%B9%E5%88%AB%E7%9A%84-sql">支持的 ClickHouse 特别的 SQL</a></li>
+</ul>
+</li>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#%E8%A6%86%E7%9B%96%E9%BB%98%E8%AE%A4%E6%9F%A5%E8%AF%A2%E8%AE%BE%E7%BD%AE">覆盖默认查询设置</a></li>
+<li><a href="clickhouse/clickhouse-sqlalchemy.html#%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95">运行测试</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="clickhouse-sqlalchemy"><a class="header" href="#clickhouse-sqlalchemy">Clickhouse-SQLAlchemy</a></h1>
+<p>原文: <a href="https://github.com/xzkostyan/clickhouse-sqlalchemy/blob/master/README.rst">https://github.com/xzkostyan/clickhouse-sqlalchemy/blob/master/README.rst</a></p>
+<p><strong>ClickHouse SQLAlchemy</strong> <a href="http://docs.sqlalchemy.org/en/latest/">SQLAlchemy</a>的连接Clickhouse数据库的方言版本。</p>
+<h2 id="安装"><a class="header" href="#安装">安装</a></h2>
+<p>可以使用 pip 安装该软件包：</p>
+<pre><code class="language-text">`pip install clickhouse-sqlalchemy`
+</code></pre>
+<h3 id="接口支持"><a class="header" href="#接口支持">接口支持</a></h3>
+<ul>
+<li>native 方式: 通过 <a href="https://github.com/mymarilyn/clickhouse-driver">clickhouse-driver</a> 【推荐】【TCP】</li>
+<li>http 方式: 通过 <a href="https://2.python-requests.org/en/latest/">requests</a></li>
+</ul>
+<h2 id="连接参数"><a class="header" href="#连接参数">连接参数</a></h2>
+<p>ClickHouse SQLAlchemy 使用下面的语法作为连接字符串:</p>
+<pre><code class="language-text">'clickhouse+&lt;driver&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;database&gt;[?key=value..]'
+</code></pre>
+<p>注意:</p>
+<ul>
+<li><em>driver</em> 是驱动选项. 可选: <code>http</code>, <code>native</code>. 默认为 <code>http</code>.</li>
+<li><em>database</em> 是要连接的数据库. 默认为 <code>default</code>数据库.</li>
+</ul>
+<h3 id="驱动选项"><a class="header" href="#驱动选项">驱动选项</a></h3>
+<p>可以在查询字符串中指定几个选项。</p>
+<p><strong>HTTP</strong></p>
+<ul>
+<li><code>port</code> 是ClickHouse绑定的端口. 默认为 <code>8123</code>.</li>
+<li><code>timeout</code> 以秒为单位的超时. 无默认值.</li>
+<li><code>protocol</code> 要使用的协议. 可选: <code>http</code>, <code>https</code>. 默认为 <code>http</code>.</li>
+</ul>
+<p>安装ClickHouse后，默认的测试连接字符串是：</p>
+<pre><code class="language-text">'clickhouse://default:@localhost/test'
+</code></pre>
+<p>当您使用 nginx 作为 ClickHouse 的代理服务器时，服务器连接字符串可能如下所示：</p>
+<pre><code class="language-text">'clickhouse://user:password@example.com:8124/test?protocol=https'
+</code></pre>
+<p>这里的<code>8124</code>是代理端口。</p>
+<p>如果您需要控制底层 HTTP 连接，请将 <a href="https://requests.readthedocs.io/en/master/user/advanced/#session-objects">requests.Session</a> 实例传递给 <code>create_engine()</code>，如下所示：</p>
+<pre><code class="language-python">from sqlalchemy import create_engine
+from requests import Session
+
+uri = 'clickhouse://default:@localhost/test'
+
+engine = create_engine(uri, connect_args={'http_session': Session()})
+</code></pre>
+<p><strong>Native</strong></p>
+<p>请注意，<code>native</code>连接方式未加密。 包括用户/密码在内的所有数据都以纯文本形式传输。 通过不受信任的网络进行通信时，您应该通过 <code>SSH</code> 或 <code>VPN</code>（例如）使用此连接。</p>
+<p>安装ClickHouse后，默认的测试连接字符串是：</p>
+<pre><code class="language-text">'clickhouse+native://default:@localhost/test'
+</code></pre>
+<p>所有连接字符串参数都代理到 clickhouse-driver。 参考其<a href="https://clickhouse-driver.readthedocs.io/en/latest/api.html#clickhouse_driver.connection.Connection">parameters</a></p>
+<h2 id="功能"><a class="header" href="#功能">功能</a></h2>
+<h3 id="sqlalchemy-声明式支持"><a class="header" href="#sqlalchemy-声明式支持">SQLAlchemy 声明式支持</a></h3>
+<p>ORM声明式和构造表的函数式两种方式都支持：</p>
+<pre><code class="language-python">from sqlalchemy import create_engine, Column, MetaData, literal
+
+from clickhouse_sqlalchemy import Table, make_session, get_declarative_base, types, engines
+
+uri = 'clickhouse://default:@localhost/test'
+
+engine = create_engine(uri)
+session = make_session(engine)
+metadata = MetaData(bind=engine)
+
+Base = get_declarative_base(metadata=metadata)
+
+class Rate(Base):
+    day = Column(types.Date, primary_key=True)
+    value = Column(types.Int32)
+    other_value = Column(
+        types.DateTime,
+        clickhouse_codec=('DoubleDelta', 'ZSTD'),
+    )
+
+    __table_args__ = (
+        engines.Memory(),
+    )
+
+another_table = Table('another_rate', metadata,
+    Column('day', types.Date, primary_key=True),
+    Column('value', types.Int32, server_default=literal(1)),
+    engines.Memory()
+)
+</code></pre>
+<p>以声明方式创建的表名具有小写字母，单词由下划线命名约定分隔。 但是您可以通过 SQLAlchemy 的 <code>__tablename__</code> 属性轻松设置您自己的表名。</p>
+<h3 id="基本的ddl数据定义支持"><a class="header" href="#基本的ddl数据定义支持">基本的DDL(数据定义)支持</a></h3>
+<p>您可以发出简单的 DDL。 例如 CREATE/DROP 表：</p>
+<pre><code class="language-python">table = Rate.__table__
+table.create()
+another_table.create()
+
+
+another_table.drop()
+table.drop()
+</code></pre>
+<h3 id="基本-insert-子句支持"><a class="header" href="#基本-insert-子句支持">基本 INSERT 子句支持</a></h3>
+<p>简单的批量插入：</p>
+<pre><code class="language-python">from datetime import date, timedelta
+from sqlalchemy import func
+
+today = date.today()
+rates = [{'day': today - timedelta(i), 'value': 200 - i} for i in range(100)]
+
+# Emits single INSERT statement.
+session.execute(table.insert(), rates)
+</code></pre>
+<h3 id="常见的-sqlalchemy-链式查询方法"><a class="header" href="#常见的-sqlalchemy-链式查询方法">常见的 SQLAlchemy 链式查询方法</a></h3>
+<p><code>order_by</code>, <code>filter</code>, <code>limit</code>, <code>offset</code>等都是支持的：</p>
+<pre><code class="language-python">session.query(func.count(Rate.day)) \
+    .filter(Rate.day &gt; today - timedelta(20)) \
+    .scalar()
+
+session.query(Rate.value) \
+    .order_by(Rate.day.desc()) \
+    .first()
+
+session.query(Rate.value) \
+    .order_by(Rate.day) \
+    .limit(10) \
+    .all()
+
+session.query(func.sum(Rate.value)) \
+    .scalar()
+</code></pre>
+<h3 id="高级-insert-子句支持"><a class="header" href="#高级-insert-子句支持">高级 INSERT 子句支持</a></h3>
+<p>INSERT FROM SELECT 语句:</p>
+<pre><code class="language-python">from sqlalchemy import cast
+
+# Labels must be present.
+select_query = session.query(
+    Rate.day.label('day'),
+    cast(Rate.value * 1.5, types.Int32).label('value')
+).subquery()
+
+# Emits single INSERT FROM SELECT statement
+session.execute(
+    another_table.insert()
+    .from_select(['day', 'value'], select_query)
+)
+</code></pre>
+<p>许多但不是所有的 SQLAlchemy 特性都支持开箱即用。</p>
+<p>UNION ALL 示例：</p>
+<pre><code class="language-python">from sqlalchemy import union_all
+
+select_rate = session.query(
+    Rate.day.label('date'),
+    Rate.value.label('x')
+)
+select_another_rate = session.query(
+    another_table.c.day.label('date'),
+    another_table.c.value.label('x')
+)
+
+union_all(select_rate, select_another_rate).execute().fetchone()
+</code></pre>
+<h3 id="用于查询处理的外部数据"><a class="header" href="#用于查询处理的外部数据">用于查询处理的外部数据</a></h3>
+<p>目前可以与native方式的接口一起使用:</p>
+<pre><code class="language-python">ext = Table(
+    'ext', metadata, Column('x', types.Int32),
+    clickhouse_data=[(101, ), (103, ), (105, )], extend_existing=True
+)
+
+rv = session.query(Rate) \
+    .filter(Rate.value.in_(session.query(ext.c.x))) \
+    .execution_options(external_tables=[ext]) \
+    .all()
+
+print(rv)
+</code></pre>
+<h3 id="支持的-clickhouse-特别的-sql"><a class="header" href="#支持的-clickhouse-特别的-sql">支持的 ClickHouse 特别的 SQL</a></h3>
+<ul>
+<li><strong>SELECT query</strong>:
+<ul>
+<li><strong>WITH TOTALS</strong></li>
+<li><strong>SAMPLE</strong></li>
+<li><strong>lambda functions: x -&gt; expr</strong></li>
+<li><strong>JOIN</strong></li>
+</ul>
+</li>
+</ul>
+<p>示例请参考 <a href="https://github.com/xzkostyan/clickhouse-sqlalchemy/tree/master/tests">tests</a></p>
+<h2 id="覆盖默认查询设置"><a class="header" href="#覆盖默认查询设置">覆盖默认查询设置</a></h2>
+<p>设置较低的查询优先级并限制执行请求的最大线程数。</p>
+<pre><code class="language-python">rv = session.query(func.sum(Rate.value)) \
+    .execution_options(settings={'max_threads': 2, 'priority': 10}) \
+    .scalar()
+
+print(rv)
+</code></pre>
+<h2 id="运行测试"><a class="header" href="#运行测试">运行测试</a></h2>
+<pre><code class="language-shell">mkvirtualenv testenv &amp;&amp; python setup.py test
+</code></pre>
+<p><code>pip</code> 将自动安装所有必需的模块进行测试。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="clickhouse-driver"><a class="header" href="#clickhouse-driver">Clickhouse-driver</a></h1>
+<p>原文: <a href="https://github.com/mymarilyn/clickhouse-driver/blob/master/README.rst">https://github.com/mymarilyn/clickhouse-driver/blob/master/README.rst</a></p>
+<p>具有Native (TCP) 接口支持的 ClickHouse Python 驱动程序。</p>
+<p>异步包装器可用在: <a href="https://github.com/mymarilyn/aioch">https://github.com/mymarilyn/aioch</a></p>
+<h2 id="功能-1"><a class="header" href="#功能-1">功能</a></h2>
+<ul>
+<li>基于外部数据的查询处理支持.</li>
+<li>Query查询设置.</li>
+<li>压缩支持.</li>
+<li>TLS 支持.</li>
+<li>类型支持:
+<ul>
+<li>Float32/64</li>
+<li>[U]Int8/16/32/64/128/256</li>
+<li>Date/Date32/DateTime('timezone')/DateTime64('timezone')</li>
+<li>String/FixedString(N)</li>
+<li>Enum8/16</li>
+<li>Array(T)</li>
+<li>Nullable(T)</li>
+<li>Bool</li>
+<li>UUID</li>
+<li>Decimal</li>
+<li>IPv4/IPv6</li>
+<li>LowCardinality(T)</li>
+<li>SimpleAggregateFunction(F, T)</li>
+<li>Tuple(T1, T2, ...)</li>
+<li>Nested</li>
+<li>Map(key, value)</li>
+</ul>
+</li>
+<li>Query查询进度信息。</li>
+<li>基于Block块式的结果流传输.</li>
+<li>读取查询配置文件信息.</li>
+<li>接收服务器日志.</li>
+<li>多主机支持.</li>
+<li>Python DB API 2.0 规范支持.</li>
+<li>可选的 NumPy 数组支持.</li>
+</ul>
+<h2 id="文档"><a class="header" href="#文档">文档</a></h2>
+<p>文档可在 <a href="https://clickhouse-driver.readthedocs.io">https://clickhouse-driver.readthedocs.io</a> 获得。</p>
+<h2 id="用法"><a class="header" href="#用法">用法</a></h2>
+<p>与服务器通信有两种方式：</p>
+<ol>
+<li>使用纯客户端；</li>
+<li>使用数据库 API。</li>
+</ol>
+<p><strong>纯客户端</strong> 示例：</p>
+<pre><code class="language-python">&gt;&gt;&gt; from clickhouse_driver import Client
+&gt;&gt;&gt;
+&gt;&gt;&gt; client = Client('localhost')
+&gt;&gt;&gt;
+&gt;&gt;&gt; client.execute('SHOW TABLES')
+[('test',)]
+&gt;&gt;&gt; client.execute('DROP TABLE IF EXISTS test')
+[]
+&gt;&gt;&gt; client.execute('CREATE TABLE test (x Int32) ENGINE = Memory')
+[]
+&gt;&gt;&gt; client.execute(
+...     'INSERT INTO test (x) VALUES',
+...     [{'x': 100}]
+... )
+1
+&gt;&gt;&gt; client.execute('INSERT INTO test (x) VALUES', [[200]])
+1
+&gt;&gt;&gt; client.execute(
+...     'INSERT INTO test (x) '
+...     'SELECT * FROM system.numbers LIMIT %(limit)s',
+...     {'limit': 3}
+... )
+[]
+&gt;&gt;&gt; client.execute('SELECT sum(x) FROM test')
+[(303,)]
+</code></pre>
+<p><strong>数据库API</strong> 示例:</p>
+<pre><code class="language-python">&gt;&gt;&gt; from clickhouse_driver import connect
+&gt;&gt;&gt;
+&gt;&gt;&gt; conn = connect('clickhouse://localhost')
+&gt;&gt;&gt; cursor = conn.cursor()
+&gt;&gt;&gt;
+&gt;&gt;&gt; cursor.execute('SHOW TABLES')
+&gt;&gt;&gt; cursor.fetchall()
+[('test',)]
+&gt;&gt;&gt; cursor.execute('DROP TABLE IF EXISTS test')
+&gt;&gt;&gt; cursor.fetchall()
+[]
+&gt;&gt;&gt; cursor.execute('CREATE TABLE test (x Int32) ENGINE = Memory')
+&gt;&gt;&gt; cursor.fetchall()
+[]
+&gt;&gt;&gt; cursor.executemany(
+...     'INSERT INTO test (x) VALUES',
+...     [{'x': 100}]
+... )
+&gt;&gt;&gt; cursor.rowcount
+1
+&gt;&gt;&gt; cursor.executemany('INSERT INTO test (x) VALUES', [[200]])
+&gt;&gt;&gt; cursor.rowcount
+1
+&gt;&gt;&gt; cursor.execute(
+...     'INSERT INTO test (x) '
+...     'SELECT * FROM system.numbers LIMIT %(limit)s',
+...     {'limit': 3}
+... )
+&gt;&gt;&gt; cursor.rowcount
+0
+&gt;&gt;&gt; cursor.execute('SELECT sum(x) FROM test')
+&gt;&gt;&gt; cursor.fetchall()
+[(303,)]
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="连接数据库"><a class="header" href="#连接数据库">连接数据库</a></h1>
 <pre><code class="language-shell">&gt; clickhouse-client -h host -p port
 </code></pre>
-<ul>
-<li>
 <p><strong>常见参数:</strong></p>
 <ul>
 <li>
@@ -208,8 +535,6 @@
 </li>
 <li>
 <p>完整的参数列表，可以通过--help查阅。</p>
-</li>
-</ul>
 </li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="内置工具"><a class="header" href="#内置工具">内置工具</a></h1>

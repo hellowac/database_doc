@@ -10,6 +10,8 @@
 - [PostgreSQL](./postgre/index.md)
   - [简介](./postgre/introduction.md)
 - [ClickHouse](./clickhouse/index.md)
+  - [Clickhouse-SQLAlchemy](./clickhouse/clickhouse-sqlalchemy.md)
+  - [Clickhouse-driver](./clickhouse/clickhouse-driver.md)
   - [连接数据库](./clickhouse/connecti.md)
   - [内置工具](./clickhouse/inner_tools.md)
   - [数据定义](./clickhouse/define_data.md)
