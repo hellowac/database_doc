@@ -1016,7 +1016,7 @@ Exception on client:
 Code: 53. DB::Exception: Type mismatch in IN or VALUES section. Expected: Array(UInt8). Got: UInt64
 </code></pre>
 <p>注意上面的异常信息，它提示期望写入的是一个Array数组类型。</p>
-<p><strong>嵌套类型本质是一种多维数组的结构。嵌套表中的每个字段都是一个数组，并且行与行之间数组的长度无须对齐。</strong></p>
+<p><strong>嵌套类型本质是一种多维数组的结构。嵌套表中的每个字段都是一个数组，同一行数据中数据必须对其，但行与行之间数组的长度无须对齐。</strong></p>
 <p>所以需要把刚才的INSERT语句调整成下面的形式：</p>
 <pre><code class="language-sql">INSERT INTO nested_test VALUES ('bruce' , 30 , [10000,10001,10002], ['研发部','技术支持中心','测试部']);
 --行与行之间,数组长度无须对齐
