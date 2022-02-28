@@ -1,0 +1,320 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>数据副本 - 数据库相关的记录文档</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../introduction.html">简介</a></li><li class="spacer"></li><li class="chapter-item "><div>SQL</div></li><li class="chapter-item "><a href="../mysql/index.html">MySQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../mysql/introduction.html">简介</a></li></ol></li><li class="chapter-item "><a href="../postgre/index.html">PostgreSQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../postgre/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../clickhouse/index.html">ClickHouse</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/clickhouse-sqlalchemy.html">Clickhouse-SQLAlchemy</a></li><li class="chapter-item "><a href="../clickhouse/clickhouse-driver.html">Clickhouse-driver</a></li><li class="chapter-item "><a href="../clickhouse/connecti.html">连接数据库</a></li><li class="chapter-item "><a href="../clickhouse/inner_tools.html">内置工具</a></li><li class="chapter-item "><a href="../clickhouse/define_data.html">数据定义</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/define_data_base_type.html">基础数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/base_type_int.html">数值类型</a></li><li class="chapter-item "><a href="../clickhouse/base_type_string.html">字符串类型</a></li><li class="chapter-item "><a href="../clickhouse/base_type_datetime.html">时间类型</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/define_data_complex_type.html">复合数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/complex_type_array.html">数组</a></li><li class="chapter-item "><a href="../clickhouse/complex_type_tuple.html">元组</a></li><li class="chapter-item "><a href="../clickhouse/complex_type_enum.html">枚举</a></li><li class="chapter-item "><a href="../clickhouse/complex_type_nested.html">嵌套</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/special_type.html">特殊类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/special_type_nullable.html">Nullable</a></li><li class="chapter-item "><a href="../clickhouse/special_type_domain.html">Domain</a></li></ol></li></ol></li><li class="chapter-item "><a href="../clickhouse/define_data_table_index.html">定义数据表</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/define_database.html">数据库</a></li><li class="chapter-item "><a href="../clickhouse/define_data_table.html">数据表</a></li><li class="chapter-item "><a href="../clickhouse/define_field_default.html">字段默认值表达式</a></li><li class="chapter-item "><a href="../clickhouse/define_temp_data_table.html">临时表</a></li><li class="chapter-item "><a href="../clickhouse/define_partition_data_table.html">分区表</a></li><li class="chapter-item "><a href="../clickhouse/define_view_data_table.html">视图</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/op_table_index.html">表的操作</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/op_table_add_column.html">追加字段</a></li><li class="chapter-item "><a href="../clickhouse/op_table_alter_data_type.html">修改数据类型</a></li><li class="chapter-item "><a href="../clickhouse/op_table_alter_comment.html">修改备注</a></li><li class="chapter-item "><a href="../clickhouse/op_table_delete_column.html">删除已有字段</a></li><li class="chapter-item "><a href="../clickhouse/op_table_move_data.html">移动数据表</a></li><li class="chapter-item "><a href="../clickhouse/op_table_truncate_data.html">清空数据表</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/op_partition_index.html">数据分区操作</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/op_partition_query.html">查询分区信息</a></li><li class="chapter-item "><a href="../clickhouse/op_partition_delete.html">删除指定分区</a></li><li class="chapter-item "><a href="../clickhouse/op_partition_copy.html">复制分区数据</a></li><li class="chapter-item "><a href="../clickhouse/op_partition_reset.html">重置分区数据</a></li><li class="chapter-item "><a href="../clickhouse/op_partition_load.html">卸载与装载分区</a></li><li class="chapter-item "><a href="../clickhouse/op_partition_backup.html">备份与还原分区</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/op_distribute_ddl.html">分布式DDL执行</a></li><li class="chapter-item "><a href="../clickhouse/insert_data.html">数据的写入</a></li><li class="chapter-item "><a href="../clickhouse/modify_and_delete_data.html">数据的删除与修改</a></li><li class="chapter-item expanded "><a href="../clickhouse/replicas_and_shards.html">副本与分片</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../clickhouse/data_replicas.html" class="active">数据副本</a></li><li class="chapter-item "><a href="../clickhouse/replicated_megetree_principle.html">ReplicatedMergeTree原理解析</a></li><li class="chapter-item "><a href="../clickhouse/data_shards.html">数据分片</a></li><li class="chapter-item "><a href="../clickhouse/distribute_principle.html">Distributed原理解析</a></li></ol></li></ol></li><li class="chapter-item "><a href="../scripts/script_select_size.html">常用语句</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../scripts/select_data_size.html">查询数据大小</a></li></ol></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">数据库相关的记录文档</h1>
+
+                    <div class="right-buttons">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%89%AF%E6%9C%AC">数据副本</a>
+<ul>
+<li><a href="#%E5%89%AF%E6%9C%AC%E7%9A%84%E7%89%B9%E7%82%B9">副本的特点</a></li>
+<li><a href="#zookeeper%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F">zookeeper的配置方式</a></li>
+<li><a href="#%E5%89%AF%E6%9C%AC%E7%9A%84%E5%AE%9A%E4%B9%89%E5%BD%A2%E5%BC%8F">副本的定义形式</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="数据副本"><a class="header" href="#数据副本">数据副本</a></h1>
+<p>在 <code>*MergeTree</code> 的前面增加<code>Replicated</code>的前缀，则能够组合成一个新的变种引擎，即<code>Replicated-MergeTree</code>复制表，如图所示。</p>
+<p><img src="../images/clickhouse03.jpg" alt="多分片多副本示意图" /></p>
+<p><img src="../images/clickhouse04.jpg" alt="多副本引擎" /></p>
+<p>只有使用了<code>ReplicatedMergeTree</code>复制表系列引擎，才能应用副本的能力。或者用一种更为直接的方式理解，即使用<code>ReplicatedMergeTree</code>的数据表就是副本。</p>
+<p><code>ReplicatedMergeTree</code>是<code>MergeTree</code>的派生引擎，它在<code>MergeTree</code>的基础上加入了分布式协同的能力，如图所示:</p>
+<p><img src="../images/clickhouse05.jpg" alt="多副本引擎" /></p>
+<p>在MergeTree中，一个数据分区由开始创建到全部完成，会历经两类存储区域。</p>
+<p>（1）<strong>内存</strong>：数据首先会被写入内存缓冲区。
+（2）<strong>本地磁盘</strong>：数据接着会被写入tmp临时目录分区，待全部完成后再将临时目录重命名为正式分区。</p>
+<p><code>ReplicatedMergeTree</code>在上述基础之上增加了<code>ZooKeeper</code>的部分，它会进一步在<code>ZooKeeper</code>内创建一系列的监听节点，并以此实现多个实例之间的通信。在整个通信过程中，<code>ZooKeeper</code>并不会涉及表数据的传输。</p>
+<h2 id="副本的特点"><a class="header" href="#副本的特点">副本的特点</a></h2>
+<p>作为数据副本的主要实现载体，<code>ReplicatedMergeTree</code>在设计上有一些显著特点。</p>
+<ul>
+<li>
+<p><strong>依赖ZooKeeper</strong>：在执行<code>INSERT</code>和<code>ALTER</code>查询的时候，<code>ReplicatedMergeTree</code>需要借助<code>ZooKeeper</code>的分布式协同能力，以实现多个副本之间的同步。但是在查询副本的时候，并不需要使用<code>ZooKeeper</code>。</p>
+</li>
+<li>
+<p><strong>表级别的副本</strong>：副本是在表级别定义的，所以每张表的副本配置都可以按照它的实际需求进行个性化定义，包括副本的数量，以及副本在集群内的分布位置等。</p>
+</li>
+<li>
+<p><strong>多主架构</strong>（Multi Master）：<strong>可以在任意一个副本上执行INSERT和ALTER查询，它们的效果是相同的</strong>。这些操作会借助<code>ZooKeeper</code>的协同能力被分发至每个副本以本地形式执行。</p>
+</li>
+<li>
+<p><strong>Block数据块</strong>：在执行<code>INSERT</code>命令写入数据时，会依据<code>max_insert_block_size</code>的大小（默认<code>1048576</code>行）将数据切分成若干个<code>Block</code>数据块。所以<code>Block</code>数据块是数据写入的基本单元，并且具有写入的原子性和唯一性。</p>
+</li>
+<li>
+<p><strong>原子性</strong>：在数据写入时，一个<code>Block</code>块内的数据要么全部写入成功，要么全部失败。</p>
+</li>
+<li>
+<p><strong>唯一性</strong>：在写入一个<code>Block</code>数据块的时候，会按照当前<code>Block</code>数据块的数据顺序、数据行和数据大小等指标，计算Hash信息摘要并记录在案。在此之后，如果某个待写入的<code>Block</code>数据块与先前已被写入的<code>Block</code>数据块拥有相同的Hash摘要（<code>Block</code>数据块内数据顺序、数据大小和数据行均相同），则该<code>Block</code>数据块会被忽略。这项设计可以预防由异常原因引起的<code>Block</code>数据块重复写入的问题。</p>
+</li>
+</ul>
+<h2 id="zookeeper的配置方式"><a class="header" href="#zookeeper的配置方式">zookeeper的配置方式</a></h2>
+<p>在正式开始之前，还需要安装并配置ZooKeeper，因为ReplicatedMergeTree必须对接到它才能工作。</p>
+<p>关于ZooKeeper的安装，参考官方文档，使用3.4.5及以上版本均可。</p>
+<p>这里着重讲解如何在ClickHouse中增加ZooKeeper的配置。</p>
+<p>ClickHouse使用一组zookeeper标签定义相关配置，默认情况下，在全局配置<code>config.xml</code>中定义即可。但是各个副本所使用的<code>Zookeeper</code>配置通常是相同的，为了便于在多个节点之间复制配置文件，更常见的做法是将这一部分配置抽离出来，独立使用一个文件保存。</p>
+<p>首先，在服务器的<code>/etc/clickhouse-server/config.d</code>目录下创建一个名为<code>metrika.xml</code>的配置文件：</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;yandex&gt;
+  &lt;zookeeper-servers&gt; &lt;!—ZooKeeper配置, 名称自定义 --&gt;
+    &lt;node index=&quot;1&quot;&gt; &lt;!—节点配置, 可以配置多个地址--&gt;
+      &lt;host&gt;hdp1.nauu.com&lt;/host&gt;
+      &lt;port&gt;2181&lt;/port&gt;
+    &lt;/node&gt;
+  &lt;/zookeeper-servers&gt;
+&lt;/yandex&gt;
+</code></pre>
+<p>接着，在全局配置<code>config.xml</code>中使用<code>&lt;include_from&gt;</code>标签导入刚才定义的配置：</p>
+<pre><code class="language-xml">&lt;include_from&gt;/etc/clickhouse-server/config.d/metrika.xml&lt;/include_from&gt;
+</code></pre>
+<p>并引用ZooKeeper配置的定义：</p>
+<pre><code class="language-xml">&lt;zookeeper incl=&quot;zookeeper-servers&quot; optional=&quot;false&quot; /&gt;
+</code></pre>
+<p>其中，incl与metrika.xml配置文件内的节点名称要彼此对应。至此，整个配置过程就完成了。</p>
+<p>ClickHouse在它的系统表中，颇为贴心地提供了一张名为<code>zookeeper</code>的代理表。通过这张表，可以使用SQL查询的方式读取远端<code>ZooKeeper</code>内的数据。有一点需要注意，在用于查询的SQL语句中，必须指定<code>path</code>条件，例如查询根路径：</p>
+<pre><code class="language-sql">SELECT * FROM system.zookeeper where path = '/'
+
+┌─name────────────────┬───value─┬──czxid─┐
+│ dolphinscheduler    │         │  2627  │
+│ clickhouse          │         │ 92875  │
+└─────────────────────┴─────────┴────────┘
+</code></pre>
+<p>进一步查询clickhouse目录：</p>
+<pre><code class="language-sql">SELECT name, value, czxid, mzxid FROM system.zookeeper where path = '/clickhouse'
+
+┌─────name─────┬───value─┬──czxid──┬───mzxid──┐
+│ tables       │         │ 134107  │ 134107   │
+│ task_queue   │         │  92876  │  92876   │
+└──────────────┴─────────┴─────────┴──────────┘
+</code></pre>
+<h2 id="副本的定义形式"><a class="header" href="#副本的定义形式">副本的定义形式</a></h2>
+<p>使用副本的好处甚多。<strong>首先，由于增加了数据的冗余存储，所以降低了数据丢失的风险；其次，由于副本采用了多主架构，所以每个副本实例都可以作为数据读、写的入口，这无疑分摊了节点的负载。</strong></p>
+<p>在使用副本时，不需要依赖任何集群配置, <code>ReplicatedMergeTree</code>结合<code>ZooKeeper</code>就能完成全部工作。</p>
+<p><code>ReplicatedMergeTree</code>的定义方式如下：</p>
+<pre><code class="language-sql">ENGINE = ReplicatedMergeTree('zk_path', 'replica_name')
+</code></pre>
+<p><strong>zk_path</strong></p>
+<ul>
+<li>
+<p>用于指定在<code>ZooKeeper</code>中创建的数据表的路径，路径名称是自定义的，并没有固定规则，用户可以设置成自己希望的任何路径。即便如此，ClickHouse还是提供了一些约定俗成的配置模板以供参考，例如：</p>
+<pre><code class="language-sql">/clickhouse/tables/{shard}/table_name
+</code></pre>
+<p>其中：</p>
+<ul>
+<li><code>/clickhouse/tables/</code>是约定俗成的路径固定前缀，表示存放数据表的根路径。</li>
+<li><code>{shard}</code>表示分片编号，通常用数值替代，例如01、02、03。一张数据表可以有多个分片，而每个分片都拥有自己的副本。</li>
+<li><code>table_name</code>表示数据表的名称，为了方便维护，通常与物理表的名字相同（虽然ClickHouse并不强制要求路径中的表名称和物理表名相同）；</li>
+</ul>
+</li>
+</ul>
+<p><strong>replica_name</strong></p>
+<ul>
+<li>作用是定义在<code>ZooKeeper</code>中创建的副本名称，该名称是区分不同副本实例的唯一标识。一种约定俗成的命名方式是使用所在服务器的域名称。</li>
+</ul>
+<p>对于<code>zk_path</code>而言，同一张数据表的同一个分片的不同副本，应该定义相同的路径；</p>
+<p>而对于<code>replica_name</code>而言，同一张数据表的同一个分片的不同副本，应该定义不同的名称。</p>
+<p>是不是有些绕口呢？下面列举几个示例。</p>
+<p>1个分片、1个副本的情形：</p>
+<pre><code class="language-sql">-- 1分片, 1副本. zk_path相同, replica_name不同
+ReplicatedMergeTree('/clickhouse/tables/01/test_1', 'ch5.nauu.com')
+ReplicatedMergeTree('/clickhouse/tables/01/test_1', 'ch6.nauu.com')
+</code></pre>
+<p>多个分片、1个副本的情形：</p>
+<pre><code class="language-sql">-- 分片1
+-- 2分片, 1副本. zk_path相同, 其中{shard}=01, replica_name不同
+ReplicatedMergeTree('/clickhouse/tables/01/test_1', 'ch5.nauu.com')
+ReplicatedMergeTree('/clickhouse/tables/01/test_1', 'ch6.nauu.com')
+
+-- 分片2
+-- 2分片, 1副本. zk_path相同, 其中{shard}=02, replica_name不同
+ReplicatedMergeTree('/clickhouse/tables/02/test_1', 'ch7.nauu.com')
+ReplicatedMergeTree('/clickhouse/tables/02/test_1', 'ch8.nauu.com')
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../clickhouse/replicas_and_shards.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="../clickhouse/replicated_megetree_principle.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../clickhouse/replicas_and_shards.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="../clickhouse/replicated_megetree_principle.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
