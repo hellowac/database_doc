@@ -1600,13 +1600,33 @@ drwxr-x---. 2 clickhouse clickhouse 4096 Sep  1 00:22 201908_5_5_0
 <p>这项特性意义非凡，它就如同批处理命令一样，省去了需要依次去单个节点执行DDL的烦恼。</p>
 <p>将一条普通的DDL语句转换成分布式执行十分简单，只需加上<code>ON CLUSTER cluster_name</code>声明即可。</p>
 <p>例如，执行下面的语句后将会对<code>ch_cluster</code>集群内的所有节点广播这条DDL语句：</p>
-<pre><code class="language-sql">CREATE TABLE partition_v3 ON CLUSTER ch_cluster( 
+<pre><code class="language-sql">CREATE TABLE partition_v3 ON CLUSTER ch_cluster(  -- 在 ch_cluster 集群上执行
   ID String,
   URL String,
   EventTime Date
 ) ENGINE =  MergeTree()
-PARTITION BY toYYYYMM(EventTime)
+PARTITION BY toYYYYMM(EventTime)  -- 通过月份分区
 ORDER BY ID
+</code></pre>
+<h2 id="查询已有集群"><a class="header" href="#查询已有集群">查询已有集群</a></h2>
+<pre><code class="language-sql">:) SELECT cluster, host_name, host_address FROM system.clusters
+
+Query id: fcd377f5-6a49-4ba5-aed8-e86f7cb96c0b
+
+┌─cluster──────────────────────────────────────┬─host_name─────┬─host_address──┐
+│ test_cluster_two_shards                      │ 127.0.0.1     │ 127.0.0.1     │
+│ test_cluster_two_shards                      │ 127.0.0.2     │ 127.0.0.2     │
+│ test_cluster_two_shards_internal_replication │ 127.0.0.1     │ 127.0.0.1     │
+│ test_cluster_two_shards_internal_replication │ 127.0.0.2     │ 127.0.0.2     │
+│ test_cluster_two_shards_localhost            │ localhost     │ ::1           │
+│ test_cluster_two_shards_localhost            │ localhost     │ ::1           │
+│ test_shard_localhost                         │ localhost     │ ::1           │
+│ test_shard_localhost_secure                  │ localhost     │ ::1           │
+│ test_unavailable_shard                       │ localhost     │ ::1           │
+│ test_unavailable_shard                       │ localhost     │ ::1           │
+└──────────────────────────────────────────────┴───────────────┴───────────────┘
+
+14 rows in set. Elapsed: 0.002 sec.
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><ul>
 <li><a href="clickhouse/insert_data.html#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%86%99%E5%85%A5">数据的写入</a>
@@ -2394,7 +2414,7 @@ ORDER BY id
 │ ch5.nauu.com   │ 9000  │      0   │        │               0   │
 └────────────────┴───────┴──────────┴────────┴───────────────────┘
 </code></pre>
-<p>值得注意的是，在改写的CREATE语句中，用{shard}和{replica}两个动态宏变量代替了先前的硬编码方式。执行下面的语句查询系统表，能够看到当前ClickHouse节点中已存在的宏变量：</p>
+<p>值得注意的是，在改写的CREATE语句中，用<code>{shard}</code>和<code>{replica}</code>两个动态宏变量代替了先前的硬编码方式。执行下面的语句查询系统表，能够看到当前ClickHouse节点中已存在的宏变量：</p>
 <pre><code class="language-sql">--ch5节点
 SELECT * FROM system.macros
 
@@ -2737,7 +2757,7 @@ ORDER BY id
   &lt;/replica&gt;
 &lt;/shard&gt;
 </code></pre>
-<p>关于Distributed表引擎如何将数据写入分片，请参见<a href="clickhouse/(#4-%E5%88%86%E5%B8%83%E5%BC%8F%E5%86%99%E5%85%A5%E7%9A%84%E6%A0%B8%E5%BF%83%E6%B5%81%E7%A8%8B)">第 4 节</a>；而关于Replicated-MergeTree表引擎如何复制分发数据，请参见<a href="clickhouse/distribute_principle.html#3-%E5%88%86%E7%89%87%E8%A7%84%E5%88%99">第3节</a>。</p>
+<p>关于Distributed表引擎如何将数据写入分片，请参见<a href="clickhouse/distribute_principle.html#4-%E5%88%86%E5%B8%83%E5%BC%8F%E5%86%99%E5%85%A5%E7%9A%84%E6%A0%B8%E5%BF%83%E6%B5%81%E7%A8%8B">第 4 节</a>；而关于Replicated-MergeTree表引擎如何复制分发数据，请参见<a href="clickhouse/distribute_principle.html#3-%E5%88%86%E7%89%87%E8%A7%84%E5%88%99">第3节</a>。</p>
 </li>
 </ul>
 <h2 id="5-分布式查询的核心流程"><a class="header" href="#5-分布式查询的核心流程">5. 分布式查询的核心流程</a></h2>

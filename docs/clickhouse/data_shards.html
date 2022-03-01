@@ -311,7 +311,7 @@ ORDER BY id
 │ ch5.nauu.com   │ 9000  │      0   │        │               0   │
 └────────────────┴───────┴──────────┴────────┴───────────────────┘
 </code></pre>
-<p>值得注意的是，在改写的CREATE语句中，用{shard}和{replica}两个动态宏变量代替了先前的硬编码方式。执行下面的语句查询系统表，能够看到当前ClickHouse节点中已存在的宏变量：</p>
+<p>值得注意的是，在改写的CREATE语句中，用<code>{shard}</code>和<code>{replica}</code>两个动态宏变量代替了先前的硬编码方式。执行下面的语句查询系统表，能够看到当前ClickHouse节点中已存在的宏变量：</p>
 <pre><code class="language-sql">--ch5节点
 SELECT * FROM system.macros
 

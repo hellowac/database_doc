@@ -317,7 +317,7 @@ slot = shard_value % sum_weight
   </shard>
   ```
 
-  关于Distributed表引擎如何将数据写入分片，请参见[第 4 节]((#4-分布式写入的核心流程))；而关于Replicated-MergeTree表引擎如何复制分发数据，请参见[第3节](#3-分片规则)。
+  关于Distributed表引擎如何将数据写入分片，请参见[第 4 节](#4-分布式写入的核心流程)；而关于Replicated-MergeTree表引擎如何复制分发数据，请参见[第3节](#3-分片规则)。
 
 ## 5. 分布式查询的核心流程
 
