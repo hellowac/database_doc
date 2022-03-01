@@ -70,5 +70,8 @@
     - [服务监控](./clickhouse/manage_service_monitor.md)
       - [系统表](./clickhouse/manage_system_tables.md)
       - [查询日志](./clickhouse/manage_query_log.md)
+  - [数据字典](./clickhouse/data_dict.md)
+    - [内置字典](./clickhouse/data_dict_inner.md)
+    - [外部扩展字典](./clickhouse/data_dict_external.md)
 - [常用语句](./scripts/script_select_size.md)
   - [查询数据大小](./scripts/select_data_size.md)

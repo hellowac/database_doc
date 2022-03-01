@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>内置字典 - 数据库相关的记录文档</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../introduction.html">简介</a></li><li class="spacer"></li><li class="chapter-item "><div>SQL</div></li><li class="chapter-item "><a href="../mysql/index.html">MySQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../mysql/introduction.html">简介</a></li></ol></li><li class="chapter-item "><a href="../postgre/index.html">PostgreSQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../postgre/introduction.html">简介</a></li></ol></li><li class="chapter-item expanded "><a href="../clickhouse/index.html">ClickHouse</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/clickhouse-sqlalchemy.html">Clickhouse-SQLAlchemy</a></li><li class="chapter-item "><a href="../clickhouse/clickhouse-driver.html">Clickhouse-driver</a></li><li class="chapter-item "><a href="../clickhouse/connecti.html">连接数据库</a></li><li class="chapter-item "><a href="../clickhouse/inner_tools.html">内置工具</a></li><li class="chapter-item "><a href="../clickhouse/define_data.html">数据定义</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/define_data_base_type.html">基础数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/base_type_int.html">数值类型</a></li><li class="chapter-item "><a href="../clickhouse/base_type_string.html">字符串类型</a></li><li class="chapter-item "><a href="../clickhouse/base_type_datetime.html">时间类型</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/define_data_complex_type.html">复合数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/complex_type_array.html">数组</a></li><li class="chapter-item "><a href="../clickhouse/complex_type_tuple.html">元组</a></li><li class="chapter-item "><a href="../clickhouse/complex_type_enum.html">枚举</a></li><li class="chapter-item "><a href="../clickhouse/complex_type_nested.html">嵌套</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/special_type.html">特殊类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/special_type_nullable.html">Nullable</a></li><li class="chapter-item "><a href="../clickhouse/special_type_domain.html">Domain</a></li></ol></li></ol></li><li class="chapter-item "><a href="../clickhouse/define_data_table_index.html">定义数据表</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/define_database.html">数据库</a></li><li class="chapter-item "><a href="../clickhouse/define_data_table.html">数据表</a></li><li class="chapter-item "><a href="../clickhouse/define_field_default.html">字段默认值表达式</a></li><li class="chapter-item "><a href="../clickhouse/define_temp_data_table.html">临时表</a></li><li class="chapter-item "><a href="../clickhouse/define_partition_data_table.html">分区表</a></li><li class="chapter-item "><a href="../clickhouse/define_view_data_table.html">视图</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/op_table_index.html">表的操作</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/op_table_add_column.html">追加字段</a></li><li class="chapter-item "><a href="../clickhouse/op_table_alter_data_type.html">修改数据类型</a></li><li class="chapter-item "><a href="../clickhouse/op_table_alter_comment.html">修改备注</a></li><li class="chapter-item "><a href="../clickhouse/op_table_delete_column.html">删除已有字段</a></li><li class="chapter-item "><a href="../clickhouse/op_table_move_data.html">移动数据表</a></li><li class="chapter-item "><a href="../clickhouse/op_table_truncate_data.html">清空数据表</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/op_partition_index.html">数据分区操作</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/op_partition_query.html">查询分区信息</a></li><li class="chapter-item "><a href="../clickhouse/op_partition_delete.html">删除指定分区</a></li><li class="chapter-item "><a href="../clickhouse/op_partition_copy.html">复制分区数据</a></li><li class="chapter-item "><a href="../clickhouse/op_partition_reset.html">重置分区数据</a></li><li class="chapter-item "><a href="../clickhouse/op_partition_load.html">卸载与装载分区</a></li><li class="chapter-item "><a href="../clickhouse/op_partition_backup.html">备份与还原分区</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/op_distribute_ddl.html">分布式DDL执行</a></li><li class="chapter-item "><a href="../clickhouse/insert_data.html">数据的写入</a></li><li class="chapter-item "><a href="../clickhouse/modify_and_delete_data.html">数据的删除与修改</a></li><li class="chapter-item "><a href="../clickhouse/replicas_and_shards.html">副本与分片</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/data_replicas.html">数据副本</a></li><li class="chapter-item "><a href="../clickhouse/replicated_megetree_principle.html">ReplicatedMergeTree原理解析</a></li><li class="chapter-item "><a href="../clickhouse/data_shards.html">数据分片</a></li><li class="chapter-item "><a href="../clickhouse/distribute_principle.html">Distributed原理解析</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/manage_and_op_index.html">管理与运维</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/manage_user_config.html">用户配置</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/manage_user_profile.html">用户profile</a></li><li class="chapter-item "><a href="../clickhouse/manage_user_constraint.html">用户约束</a></li><li class="chapter-item "><a href="../clickhouse/manage_user_define.html">用户定义</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/manage_authority.html">权限管理</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/authority_access.html">访问权限</a></li><li class="chapter-item "><a href="../clickhouse/authority_query.html">查询权限</a></li><li class="chapter-item "><a href="../clickhouse/authority_row.html">数据行级权限</a></li></ol></li><li class="chapter-item "><a href="../clickhouse/manage_circuit.html">熔断机制</a></li><li class="chapter-item "><a href="../clickhouse/manage_data_backup.html">数据备份</a></li><li class="chapter-item "><a href="../clickhouse/manage_service_monitor.html">服务监控</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../clickhouse/manage_system_tables.html">系统表</a></li><li class="chapter-item "><a href="../clickhouse/manage_query_log.html">查询日志</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../clickhouse/data_dict.html">数据字典</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../clickhouse/data_dict_inner.html" class="active">内置字典</a></li><li class="chapter-item "><a href="../clickhouse/data_dict_external.html">外部扩展字典</a></li></ol></li></ol></li><li class="chapter-item "><a href="../scripts/script_select_size.html">常用语句</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../scripts/select_data_size.html">查询数据大小</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">数据库相关的记录文档</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="内置字典"><a class="header" href="#内置字典">内置字典</a></h1>
+<p>摘自：《ClickHouse原理解析与应用实践》 — 朱凯</p>
+<p>在豆瓣阅读书店查看：<a href="https://read.douban.com/ebook/149635956/?dcs=bookshelf">https://read.douban.com/ebook/149635956/?dcs=bookshelf</a></p>
+<p>本作品由华章数媒授权豆瓣阅读中国大陆范围内电子版制作与发行。</p>
+<p>© 版权所有，侵权必究。</p>
+<hr />
+<p>ClickHouse目前只有一种内置字典——Yandex.Metrica字典。</p>
+<p>从名称上可以看出，这是用在ClickHouse自家产品上的字典，而它的设计意图是快速存取geo地理数据。</p>
+<p>但较为遗憾的是，由于版权原因Yandex并没有将geo地理数据开放出来。</p>
+<p>这意味着ClickHouse目前的内置字典，只是提供了字典的定义机制和取数函数，而没有内置任何现成的数据。</p>
+<p>所以内置字典的现状较为尴尬，需要遵照它的字典规范自行导入数据。</p>
+<h2 id="内置字典配置说明"><a class="header" href="#内置字典配置说明">内置字典配置说明</a></h2>
+<p>内置字典在默认的情况下是禁用状态，需要开启后才能使用。开启它的方式也十分简单，只需将<code>config.xml</code>文件中<code>path_to_regions_hierarchy_file</code>和<code>path_to_regions_names_files</code>两项配置打开。</p>
+<pre><code class="language-xml">&lt;path_to_regions_hierarchy_file&gt;
+    /opt/geo/regions_hierarchy.txt
+&lt;/path_to_regions_hierarchy_file&gt;
+
+&lt;path_to_regions_names_files&gt;
+    /opt/geo/
+&lt;/path_to_regions_names_files&gt;
+</code></pre>
+<p>这两项配置是惰性加载的，只有当字典首次被查询的时候才会触发加载动作。填充Yandex.Metrica字典的geo地理数据由两组模型组成，可以分别理解为地区数据的主表及维度表。这两组模型的数据分别由上述两项配置指定，现在依次介绍它们的具体用法。</p>
+<ol>
+<li>
+<p><strong>path_to_regions_hierarchy_file</strong></p>
+<p><code>path_to_regions_hierarchy_file</code>等同于区域数据的主表，由1个<code>regions_hierarchy.txt</code>和多个<code>regions_hierarchy_[name].txt</code>区域层次的数据文件共同组成，缺一不可。其中<code>[name]</code>表示区域标识符，与<code>i18n</code>类似。这些TXT文件内的数据需要使用<code>TabSeparated</code>格式定义，其数据模型的格式如表所示。</p>
+<p><img src="../images/clickhouse22.jpeg" alt="regions_hierarchy数据模型说明" /></p>
+</li>
+<li>
+<p><strong>path_to_regions_names_files</strong></p>
+<p><code>path_to_regions_names_files</code>等同于区域数据的维度表，记录了与区域ID对应的区域名称。维度数据使用6个<code>regions_names_[name].txt</code>文件保存，其中<code>[name]</code>表示区域标识符与<code>regions_hierarchy_[name].txt</code>对应，目前包括<code>ru</code>、<code>en</code>、<code>ua</code>、<code>by</code>、<code>kz</code>和<code>tr</code>。上述这些区域的数据文件必须全部定义，这是因为内置字典在初次加载时，会一次性加载上述6个区域标识的数据文件。如果缺少任何一个文件就会抛出异常并导致初始化失败。</p>
+<p>这些TXT文件内的数据同样需要使用TabSeparated格式定义，其数据模型的格式如表所示。</p>
+<p><img src="../images/clickhouse23.jpeg" alt="regions_hierarchy数据模型说明" /></p>
+</li>
+</ol>
+<h2 id="使用内置字典"><a class="header" href="#使用内置字典">使用内置字典</a></h2>
+<p>在知晓了内置字典的开启方式和<code>Yandex.Metrica</code>字典的数据模型之后，就可以配置字典的数据并使用它们了。首先，在<code>/opt</code>路径下新建geo目录：</p>
+<pre><code class="language-shell"># mkdir /opt/geo
+</code></pre>
+<p>接着，进入本书附带的演示代码，找到数据字典目录。为了便于读者测试，事先已经准备好了一份测试数据，将下列用于测试的数据文件复制到刚才已经建好的<code>/opt/geo</code>目录下：</p>
+<pre><code class="language-shell"># pwd
+/opt/geo
+# ll
+total 36
+-rw-r--r--. 1 root root 3096 Jul  7 20:38 regions_hierarchy_ru.txt
+-rw-r--r--. 1 root root 3096 Jul  7 20:38 regions_hierarchy.txt
+-rw-r--r--. 1 root root 3957 Jul  7 19:44 regions_names_ar.txt
+-rw-r--r--. 1 root root 3957 Jul  7 19:44 regions_names_by.txt
+-rw-r--r--. 1 root root 3957 Jul  7 19:44 regions_names_en.txt
+-rw-r--r--. 1 root root 3957 Jul  7 19:44 regions_names_kz.txt
+-rw-r--r--. 1 root root 3957 Jul  7 19:44 regions_names_ru.txt
+-rw-r--r--. 1 root root 3957 Jul  7 19:44 regions_names_tr.txt
+-rw-r--r--. 1 root root 3957 Jul  7 19:44 regions_names_ua.txt
+</code></pre>
+<p>最后，找到config.xml并按照5.1.1节介绍的方法开启内置字典。</p>
+<p>至此，内置字典就已经全部设置好了，执行下面的语句就能够访问字典中的数据：</p>
+<pre><code class="language-sql">SELECT regionToName(toUInt32(20009))
+
+┌─regionToName(toUInt32(20009))───┐
+│  Buenos Aires Province          │
+└─────────────────────────────────┘
+</code></pre>
+<p>可以看到，对于Yandex.Metrica字典数据的访问，这里用到了<code>regionToName</code>函数。类似这样的函数还有很多，在ClickHouse中它们被称为Yandex.Metrica函数。关于这套函数的更多用法，请参阅官方手册。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../clickhouse/data_dict.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../clickhouse/data_dict_external.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../clickhouse/data_dict.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../clickhouse/data_dict_external.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
